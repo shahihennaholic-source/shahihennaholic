@@ -15,7 +15,7 @@
         .nav-links a { text-decoration:none; color:#fff; font-weight:500; padding:0.6rem 1.2rem; border-radius:20px; transition:0.3s; font-size:0.95rem; border:1px solid transparent; }
         .nav-links a:hover, .nav-links a.active { background:#fffaf5; color:#4a2312; border-color:#fffaf5; }
 
-        .hero { height:65vh; background: linear-gradient(rgba(48, 12, 1, 0.55), rgba(48, 12, 1, 0.65)), url("images/Mehandi/Bridal Mehandi designs.jpeg") no-repeat center center/cover; display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; color:white; padding:2rem; margin-top:70px; }
+        .hero { height:65vh; background: linear-gradient(rgba(48, 12, 1, 0.55), rgba(48, 12, 1, 0.65)), url("images/Bridal Mehandi designs.jpeg") no-repeat center center/cover; display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; color:white; padding:2rem; margin-top:70px; }
         .hero h1 { font-family:'Playfair Display', serif; font-size:4.5rem; color:#fcdfa9; margin-bottom:1rem; text-shadow:2px 2px 10px rgba(0,0,0,0.6); }
         .hero p { font-size:1.4rem; max-width:750px; font-weight:300; text-shadow:1px 1px 5px rgba(0,0,0,0.5); }
 
@@ -33,14 +33,27 @@
         .btn-primary:hover { background:#6e371c; }
         
         footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; font-size:0.95rem; }
+
+        /* Mobile View Optimizations */
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem 1.5rem; flex-direction: column; gap: 1rem; position: relative; }
+            .logo { font-size: 1.6rem; }
+            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+            .nav-links a { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
+            .hero { margin-top: 0; height: 50vh; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 2rem; margin: 2.5rem 0 1.5rem 0; }
+            .main-container { padding: 0 5% 3rem 5%; gap: 1.5rem; }
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="shahiweb.html" class="logo">shahihennaholic</a>
+        <a href="index.html" class="logo">shahihennaholic</a>
         <div class="nav-links">
-            <a href="shahiweb.html" class="active">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="cones.html">Cones & Storage</a>
             <a href="styles.html">Mehndi Styles</a>
             <a href="reviews.html">Reviews & Contact</a>
@@ -56,7 +69,7 @@
 
     <main class="main-container">
         <div class="category-card">
-            <img src="images/Mehandi/Bridal Mehandi designs.jpeg" alt="Bridal Mehndi" class="card-img">
+            <img src="images/Bridal Mehandi designs.jpeg" alt="Bridal Mehndi" class="card-img">
             <div class="card-content">
                 <h2>Bridal Mehndi Catalog</h2>
                 <a href="styles.html" class="btn btn-primary">Explore Designs</a>
@@ -64,7 +77,7 @@
         </div>
 
         <div class="category-card">
-            <img src="images/Cone/Normal cones and bridal cones.jpeg" alt="Organic Cones" class="card-img">
+            <img src="images/Normal cones and bridal cones.jpeg" alt="Organic Cones" class="card-img">
             <div class="card-content">
                 <h2>Premium Fresh Cones</h2>
                 <a href="cones.html" class="btn btn-primary">View Cone Storage</a>
@@ -72,7 +85,7 @@
         </div>
 
         <div class="category-card">
-            <img src="images/Mehandi/Mandala design front and back.jpeg" alt="Mandala Work" class="card-img">
+            <img src="images/Mandala design front and back.jpeg" alt="Mandala Work" class="card-img">
             <div class="card-content">
                 <h2>Hand Layout Portfolio</h2>
                 <a href="styles.html" class="btn btn-primary">View Designs</a>
