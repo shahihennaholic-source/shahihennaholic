@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Poppins', sans-serif; background:#fffaf5; color:#3d2314; padding-top:120px; }
+        body { font-family:'Poppins', sans-serif; background:#fffaf5; color:#3d2314; padding-top:140px; }
         
         .navbar { position:fixed; top:0; width:100%; z-index:1000; background:#4a2312; display:flex; justify-content:space-between; align-items:center; padding:1.2rem 4rem; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
         .logo { color:#fcdfa9; font-family:'Playfair Display', serif; font-size:2rem; font-weight:700; text-decoration:none; }
@@ -20,7 +20,7 @@
         
         .cone-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:2.5rem; margin-bottom:4rem; }
         .cone-card { background:white; border-radius:20px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.04); text-align:center; border:1px solid #f2e4d9; }
-        .cone-card img { width:100%; height:300px; object-fit:cover; }
+        .cone-card img { width:100%; height:320px; object-fit:cover; }
         .cone-card h3 { padding:1.5rem; color:#4a2312; font-family:'Playfair Display', serif; font-size:1.3rem; }
 
         .care-list { list-style:none; }
@@ -28,21 +28,20 @@
         .care-list li:last-child { border-bottom:none; }
         .dot { width:8px; height:8px; background:#b83b14; border-radius:50%; margin-right:1rem; flex-shrink:0; }
 
-        .care-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:2.5rem; margin-bottom:4rem; }
+        .care-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:2.5rem; margin-bottom:4rem; }
         .care-box { background:white; border-radius:20px; padding:2.5rem; box-shadow:0 8px 25px rgba(0,0,0,0.04); border-top:6px solid #4a2312; }
         .care-box h2 { font-family:'Playfair Display', serif; color:#4a2312; margin-bottom:1.5rem; text-align:center; }
         
-        .storage-box { background:white; border-radius:20px; padding:3rem; box-shadow:0 8px 25px rgba(0,0,0,0.04); border-top:6px solid #b83b14; margin-bottom:5rem; }
+        .storage-box { background:white; border-radius:20px; padding:3rem; box-shadow:0 8px 25px rgba(0,0,0,0.04); border-top:6px solid #b83b14; margin-bottom:4rem; }
         .storage-box h2 { font-family:'Playfair Display', serif; color:#4a2312; margin-bottom:1.5rem; text-align:center; }
 
         footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; margin-top:4rem; }
 
-        /* Mobile View Optimizations */
         @media (max-width: 768px) {
-            body { padding-top: 20px; }
-            .navbar { padding: 1rem 1.5rem; flex-direction: column; gap: 1rem; position: relative; }
+            body { padding-top: 160px; }
+            .navbar { padding: 1rem; flex-direction: column; gap: 0.8rem; }
             .logo { font-size: 1.6rem; }
-            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.4rem; }
             .nav-links a { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
             .page-title { font-size: 2rem; margin-bottom: 2rem; }
             .cone-grid, .care-grid { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -80,36 +79,34 @@
         <div class="storage-box">
             <h2>Cone Storage Instructions</h2>
             <ul class="care-list">
-                <li><span class="dot"></span>Store cones in freezer immediately after receiving.</li>
-                <li><span class="dot"></span>Cones remain fresh for up to 2-3 months in proper freezing conditions.</li>
-                <li><span class="dot"></span>Keep outside for 20-30 minutes before use.</li>
-                <li><span class="dot"></span>Do not refreeze after thawing.</li>
-                <li><span class="dot"></span>Use within 24 hours if stored at room temperature.</li>
-                <li><span class="dot"></span>Proper storage improves stain quality and freshness.</li>
+                <li><span class="dot"></span>Store cones in the freezer immediately after receiving your order.</li>
+                <li><span class="dot"></span>Cones remain fresh and fully potent for up to 2-3 months when kept frozen.</li>
+                <li><span class="dot"></span>Keep outside at room temperature for 20-30 minutes before starting application.</li>
+                <li><span class="dot"></span>Do not refreeze a cone once it has been fully thawed.</li>
+                <li><span class="dot"></span>Proper freezer storage ensures a vibrant, rich color output.</li>
             </ul>
         </div>
 
         <div class="care-grid">
             <div class="care-box">
-                <h2>Before Care (Before Applying Henna)</h2>
+                <h2>Before Care (Before Applying)</h2>
                 <ul class="care-list">
-                    <li><span class="dot"></span>Hands should be clean & dry</li>
-                    <li><span class="dot"></span>Avoid oil / lotion / cream / soap residue</li>
-                    <li><span class="dot"></span>Do not wax or bleach the area recently (Do 2 days before)</li>
-                    <li><span class="dot"></span>Good body heat gives better stain</li>
-                    <li><span class="dot"></span>Overnight application gives best results</li>
+                    <li><span class="dot"></span>Ensure skin area is completely clean & dry.</li>
+                    <li><span class="dot"></span>Avoid applying any oil, lotion, cream, or soap residue.</li>
+                    <li><span class="dot"></span>Do not wax or bleach the area within 2 days of application.</li>
+                    <li><span class="dot"></span>Good natural body heat helps the stain develop beautifully.</li>
+                    <li><span class="dot"></span>Leaving henna on overnight yields the deepest possible colors.</li>
                 </ul>
             </div>
 
             <div class="care-box">
-                <h2>After Care (After Removing Henna)</h2>
+                <h2>After Care (After Removal)</h2>
                 <ul class="care-list">
-                    <li><span class="dot"></span>Keep henna for minimum 6–8 hours</li>
-                    <li><span class="dot"></span>Remove paste without using water</li>
-                    <li><span class="dot"></span>Soak with Aftercare oil (coconut / clove / almond / olive oil) and scrape gently using tissue or dry cloth</li>
-                    <li><span class="dot"></span>Avoid water, soap & sanitizer for 12 hours</li>
-                    <li><span class="dot"></span>Stain darkens naturally in 24–48 hours</li>
-                    <li><span class="dot"></span>Heat helps stain – avoid AC immediately</li>
+                    <li><span class="dot"></span>Keep the henna design on for a minimum of 6–8 hours.</li>
+                    <li><span class="dot"></span>Scrape paste away gently; do not use water for removal.</li>
+                    <li><span class="dot"></span>Soak with coconut or clove oil to loosen dry crust flakes.</li>
+                    <li><span class="dot"></span>Avoid water, liquid soaps, or sanitizers for at least 12 hours.</li>
+                    <li><span class="dot"></span>The henna stain darkens naturally over the next 24–48 hours.</li>
                 </ul>
             </div>
         </div>
