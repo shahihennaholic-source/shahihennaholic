@@ -25,14 +25,27 @@
         .caption { padding:1.2rem; text-align:center; font-size:1.05rem; font-weight:600; color:#4a2312; background:#fffefc; }
 
         footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; }
+
+        /* Mobile View Optimizations */
+        @media (max-width: 768px) {
+            body { padding-top: 20px; }
+            .navbar { padding: 1rem 1.5rem; flex-direction: column; gap: 1rem; position: relative; }
+            .logo { font-size: 1.6rem; }
+            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+            .nav-links a { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
+            .title-section { margin-bottom: 2rem; }
+            .title-section h1 { font-size: 2rem; }
+            .gallery-grid { padding: 0 5% 3rem 5%; gap: 1.5rem; }
+            .gallery-item img { height: 280px; }
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="shahiweb.html" class="logo">shahihennaholic</a>
+        <a href="index.html" class="logo">shahihennaholic</a>
         <div class="nav-links">
-            <a href="shahiweb.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="cones.html">Cones & Storage</a>
             <a href="styles.html" class="active">Mehndi Styles</a>
             <a href="reviews.html">Reviews & Contact</a>
@@ -44,12 +57,12 @@
     </div>
 
     <section class="gallery-grid">
-        <div class="gallery-item"><img src="images/Mehandi/Bridal Mehandi designs.jpeg"><div class="caption">Bridal Design</div></div>
-        <div class="gallery-item"><img src="images/Mehandi/Elbow length design front and back.jpeg"><div class="caption">Elbow Length Layout</div></div>
-        <div class="gallery-item"><img src="images/Mehandi/Mandala design front and back.jpeg"><div class="caption">Mandala Design</div></div>
-        <div class="gallery-item"><img src="images/Mehandi/Mid length design front and back.jpeg"><div class="caption">Mid Length Layout</div></div>
-        <div class="gallery-item"><img src="images/Mehandi/Minimal design.jpeg"><div class="caption">Minimal Style</div></div>
-        <div class="gallery-item"><img src="images/Mehandi/Palm length design front and back.jpeg"><div class="caption">Palm Length Style</div></div>
+        <div class="gallery-item"><img src="images/Bridal Mehandi designs.jpeg"><div class="caption">Bridal Design</div></div>
+        <div class="gallery-item"><img src="images/Elbow length design front and back.jpeg"><div class="caption">Elbow Length Layout</div></div>
+        <div class="gallery-item"><img src="images/Mandala design front and back.jpeg"><div class="caption">Mandala Design</div></div>
+        <div class="gallery-item"><img src="images/Mid length design front and back.jpeg"><div class="caption">Mid Length Layout</div></div>
+        <div class="gallery-item"><img src="images/Minimal design.jpeg"><div class="caption">Minimal Style</div></div>
+        <div class="gallery-item"><img src="images/Palm length design front and back.jpeg"><div class="caption">Palm Length Style</div></div>
     </section>
 
     <footer>shahihennaholic • Premium Organic Mehndi Artistry</footer>
