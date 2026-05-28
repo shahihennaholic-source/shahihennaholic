@@ -36,14 +36,27 @@
         .storage-box h2 { font-family:'Playfair Display', serif; color:#4a2312; margin-bottom:1.5rem; text-align:center; }
 
         footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; margin-top:4rem; }
+
+        /* Mobile View Optimizations */
+        @media (max-width: 768px) {
+            body { padding-top: 20px; }
+            .navbar { padding: 1rem 1.5rem; flex-direction: column; gap: 1rem; position: relative; }
+            .logo { font-size: 1.6rem; }
+            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+            .nav-links a { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
+            .page-title { font-size: 2rem; margin-bottom: 2rem; }
+            .cone-grid, .care-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .care-box, .storage-box { padding: 1.5rem; }
+            .container { padding: 0 1rem; }
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="shahiweb.html" class="logo">shahihennaholic</a>
+        <a href="index.html" class="logo">shahihennaholic</a>
         <div class="nav-links">
-            <a href="shahiweb.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="cones.html" class="active">Cones & Storage</a>
             <a href="styles.html">Mehndi Styles</a>
             <a href="reviews.html">Reviews & Contact</a>
@@ -55,11 +68,11 @@
         
         <div class="cone-grid">
             <div class="cone-card">
-                <img src="images/Cone/Nail cones .jpeg" alt="Nail Cones">
+                <img src="images/Nail cones .jpeg" alt="Nail Cones">
                 <h3>Nail Cones</h3>
             </div>
             <div class="cone-card">
-                <img src="images/Cone/Normal cones and bridal cones.jpeg" alt="Bridal Cones">
+                <img src="images/Normal cones and bridal cones.jpeg" alt="Bridal Cones">
                 <h3>Normal & Bridal Cones</h3>
             </div>
         </div>
