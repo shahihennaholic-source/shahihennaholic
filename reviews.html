@@ -16,9 +16,8 @@
 
         .review-container { max-width:900px; margin:0 auto 5rem auto; padding:0 2rem; }
         .header-box { text-align:center; margin-bottom:3rem; }
-        .header-box h1 { font-family:'Playfair Display', serif; font-size:3rem; color:#611c05; }
+        .header-box h1 { font-family:'Playfair Display', serif; font-size:3rem; color:#611c05; margin-bottom:1rem; }
 
-        /* REVIEWS DISPLAY */
         .reviews-list { display:flex; flex-direction:column; gap:1.5rem; margin-bottom:4rem; }
         .review-card { background:white; padding:2rem; border-radius:15px; box-shadow:0 8px 20px rgba(97,28,5,0.04); border:1px solid #f2e4d9; }
         .reviewer-info { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem; }
@@ -26,15 +25,15 @@
         .stars { color:#ffbc0b; font-size:1.2rem; }
         .review-text { color:#5c483f; line-height:1.6; }
 
-        /* ADD REVIEW FORM */
-        .form-card { background:#fff0e6; border-radius:20px; padding:3rem; border:1px dashed #b83b14; }
-        .form-card h2 { font-family:'Playfair Display', serif; font-size:1.8rem; color:#611c05; margin-bottom:1.5rem; text-align:center; }
-        .form-group { margin-bottom:1.5rem; display:flex; flex-direction:column; gap:0.5rem; }
-        .form-group label { font-weight:500; color:#4a3328; }
-        .form-group input, .form-group textarea, .form-group select { padding:0.9rem; border-radius:10px; border:1px solid #dec8b7; background:white; font-family:inherit; font-size:1rem; }
-        .form-group textarea { height:120px; resize:none; }
-        .btn-submit { background:#b83b14; color:white; border:none; padding:1rem; border-radius:10px; font-weight:600; font-size:1.1rem; cursor:pointer; transition:0.3s; }
-        .btn-submit:hover { background:#e04f20; }
+        .form-card { background:#fff0e6; border-radius:20px; padding:3rem; border:1px dashed #b83b14; text-align:center; }
+        .form-card h2 { font-family:'Playfair Display', serif; font-size:1.8rem; color:#611c05; margin-bottom:1rem; }
+        .form-card p { margin-bottom:2rem; color:#5c483f; }
+        
+        .btn-instagram { display:inline-block; padding:0.8rem 1.8rem; background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color:white; text-decoration:none; border-radius:30px; font-weight:600; transition:0.3s; }
+        .btn-instagram:hover { transform:translateY(-3px); opacity:0.95; }
+
+        /* DISQUS EMBED MOUNT POINT */
+        .disqus-wrap { background:white; padding:2.5rem; border-radius:20px; box-shadow:0 8px 20px rgba(97,28,5,0.04); border:1px solid #f2e4d9; margin-top:3rem; }
 
         footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; margin-top:5rem; }
     </style>
@@ -56,7 +55,7 @@
             <h1>Client Testimonials</h1>
         </div>
 
-        <div class="reviews-list" id="reviewsContainer">
+        <div class="reviews-list">
             <div class="review-card">
                 <div class="reviewer-info">
                     <span class="reviewer-name">Ananya R.</span>
@@ -74,54 +73,28 @@
         </div>
 
         <div class="form-card">
-            <h2>Share Your Experience</h2>
-            <form id="reviewForm">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" required placeholder="Enter your full name">
-                </div>
-                <div class="form-group">
-                    <label for="rating">Rating Selection</label>
-                    <select id="rating">
-                        <option value="★★★★★">5 Stars ★★★★★</option>
-                        <option value="★★★★">4 Stars ★★★★</option>
-                        <option value="★★★">3 Stars ★★★</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="comments">Your Feedback</label>
-                    <textarea id="comments" required placeholder="Write your review here..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Publish Review</button>
-            </form>
+            <h2>Submit Your Feedback</h2>
+            <p>To drop a direct public review that stays saved permanently, use the platform discussion board below, or drop your experience straight to our Instagram inbox!</p>
+            <a href="https://www.instagram.com/shihennaholic/" target="_blank" class="btn-instagram">Send Feedback on Instagram: @shihennaholic</a>
+        </div>
+
+        <div class="disqus-wrap">
+            <div id="disqus_thread"></div>
         </div>
     </div>
 
     <script>
-        document.getElementById('reviewForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const rating = document.getElementById('rating').value;
-            const comments = document.getElementById('comments').value;
-
-            // Generate card element
-            const newCard = document.createElement('div');
-            newCard.className = 'review-card';
-            newCard.innerHTML = `
-                <div class="reviewer-info">
-                    <span class="reviewer-name">${name}</span>
-                    <span class="stars">${rating}</span>
-                </div>
-                <p class="review-text">${comments}</p>
-            `;
-
-            // Append onto structural display wrapper
-            document.getElementById('reviewsContainer').appendChild(newCard);
-
-            // Wipe input values
-            document.getElementById('reviewForm').reset();
-        });
+        var disqus_config = function () {
+            this.page.url = window.location.href;  
+            this.page.identifier = 'shahi_hennaholic_reviews'; 
+        };
+        (function() { 
+            var d = document, s = d.createElement('script');
+            // REPLACE 'shahi-hennaholic' BELOW WITH YOUR ACTUAL SHORTNAME ONCE CREATED ON DISQUS WEBSITE
+            s.src = 'https://shahi-hennaholic.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
 
     <footer>Shahi Hennaholic • Premium Organic Mehndi Artistry</footer>
