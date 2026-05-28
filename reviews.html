@@ -24,6 +24,22 @@
         .instagram-btn { display: inline-block; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 600; margin-top: 1rem; transition: 0.3s; text-align: center; }
         .instagram-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(220,39,67,0.3); }
 
+        /* Custom Simple Review Style */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: #4a2312; font-size: 0.9rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #e1d4ca; border-radius: 8px; font-family: inherit; }
+        .submit-review-btn { background: #4a2312; color: white; border: none; padding: 12px 25px; border-radius: 25px; font-weight: 600; cursor: pointer; transition: 0.3s; width: 100%; }
+        .submit-review-btn:hover { background: #6e371c; }
+
+        .reviews-display-area { margin-top: 30px; max-height: 400px; overflow-y: auto; padding-right: 5px; }
+        .review-card { background: #fffdfb; padding: 15px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid #4a2312; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .reviewer-name { font-weight: 700; color: #4a2312; }
+        .reviewer-email { font-size: 0.8rem; color: #8a766a; }
+        .owner-badge { background: #fcdfa9; color: #4a2312; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; margin-left: 8px; display: inline-block; }
+        .reply-box-btn { font-size: 0.8rem; color: #b83b14; background: none; border: none; cursor: pointer; font-weight: 600; margin-top: 5px; text-decoration: underline; }
+        .owner-reply-div { background: #fdf8f4; border-left: 3px solid #b83b14; padding: 10px; margin-top: 10px; border-radius: 6px; }
+
         footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; }
 
         @media (max-width: 768px) {
@@ -63,22 +79,120 @@
 
         <div class="section-box">
             <h2>Customer Reviews</h2>
-            <div id="disqus_thread"></div>
-            <script>
-                var disqus_config = function () {
-                    this.page.url = window.location.href;  
-                    this.page.identifier = "shahihennaholic_reviews_page"; 
-                };
-                (function() { 
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://shahihennaholic.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
+            
+            <form id="simpleReviewForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="revName" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="revEmail" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Review Comment</label>
+                    <textarea id="revComment" rows="3" required placeholder="Write your review here..."></textarea>
+                </div>
+                <button type="submit" class="submit-review-btn">Post Review</button>
+            </form>
+
+            <div class="reviews-display-area" id="reviewsContainer">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Srinithi</span>
+                        <span class="reviewer-email">srinithi@example.com</span>
+                    </div>
+                    <p>The organic cones give such a dark, beautiful stain! Highly recommended.</p>
+                    <div class="owner-reply-div">
+                        <strong>shahihennaholic <span class="owner-badge">Owner</span></strong>
+                        <p>Thank you so much for your sweet words! ❤️</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <footer>shahihennaholic • Premium Organic Mehndi Artistry</footer>
+
+    <script>
+        const reviewForm = document.getElementById('simpleReviewForm');
+        const container = document.getElementById('reviewsContainer');
+
+        // Load existing reviews from browser storage memory
+        let savedReviews = JSON.parse(localStorage.getItem('henna_reviews')) || [];
+
+        function renderReviews() {
+            // Keep default initial placeholder visible
+            let initialHTML = `
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Srinithi</span>
+                        <span class="reviewer-email">srinithi@example.com</span>
+                    </div>
+                    <p>The organic cones give such a dark, beautiful stain! Highly recommended.</p>
+                    <div class="owner-reply-div">
+                        <strong>shahihennaholic <span class="owner-badge">Owner</span></strong>
+                        <p>Thank you so much for your sweet words! ❤️</p>
+                    </div>
+                </div>
+            `;
+
+            savedReviews.forEach((rev, index) => {
+                let replyHTML = '';
+                if(rev.reply) {
+                    replyHTML = `
+                        <div class="owner-reply-div">
+                            <strong>shahihennaholic <span class="owner-badge">Owner</span></strong>
+                            <p>${rev.reply}</p>
+                        </div>
+                    `;
+                } else {
+                    replyHTML = `<button class="reply-box-btn" onclick="replyAsOwner(${index})">Reply as Owner</button>`;
+                }
+
+                initialHTML += `
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="reviewer-name">${rev.name}</span>
+                            <span class="reviewer-email">${rev.email}</span>
+                        </div>
+                        <p>${rev.comment}</p>
+                        ${replyHTML}
+                    </div>
+                `;
+            });
+            container.innerHTML = initialHTML;
+        }
+
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('revName').value;
+            const email = document.getElementById('revEmail').value;
+            const comment = document.getElementById('revComment').value;
+
+            savedReviews.push({ name, email, comment, reply: null });
+            localStorage.setItem('henna_reviews', JSON.stringify(savedReviews));
+            
+            reviewForm.reset();
+            renderReviews();
+        });
+
+        // Secret Admin reply action
+        window.replyAsOwner = function(index) {
+            const secretCode = prompt("Enter Admin Security Code to post official reply:");
+            if(secretCode === "shahi123") {
+                const replyText = prompt("Type your official reply text:");
+                if(replyText) {
+                    savedReviews[index].reply = replyText;
+                    localStorage.setItem('henna_reviews', JSON.stringify(savedReviews));
+                    renderReviews();
+                }
+            } else if (secretCode !== null) {
+                alert("Incorrect security code access denied.");
+            }
+        }
+
+        renderReviews();
+    </script>
 </body>
 </html>
