@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahi Henna | Organic Mehndi Artistry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Poppins', sans-serif; background:#fffaf5; color:#3d2314; }
+        
+        .navbar { position:fixed; top:0; width:100%; z-index:1000; background:#4a2312; display:flex; justify-content:space-between; align-items:center; padding:1.2rem 4rem; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+        .logo { color:#fcdfa9; font-family:'Playfair Display', serif; font-size:2rem; font-weight:700; text-decoration:none; }
+        .nav-links { display:flex; gap:1.5rem; }
+        .nav-links a { text-decoration:none; color:#fff; font-weight:500; padding:0.6rem 1.2rem; border-radius:20px; transition:0.3s; font-size:0.95rem; border:1px solid transparent; }
+        .nav-links a:hover, .nav-links a.active { background:#fffaf5; color:#4a2312; border-color:#fffaf5; }
+
+        .hero { height:60vh; background: linear-gradient(rgba(48, 12, 1, 0.5), rgba(48, 12, 1, 0.6)), url("imges/bridal.jpg") no-repeat center center/cover; display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; color:white; padding:2rem; margin-top:70px; }
+        .hero h1 { font-family:'Playfair Display', serif; font-size:4rem; color:#fcdfa9; margin-bottom:1rem; text-shadow:2px 2px 8px rgba(0,0,0,0.5); }
+        .hero p { font-size:1.3rem; max-width:750px; font-weight:300; }
+
+        .section-title { text-align:center; margin:4rem 0 2rem 0; font-family:'Playfair Display', serif; font-size:2.5rem; color:#4a2312; }
+
+        .main-container { padding:0 8% 5rem 8%; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:2.5rem; }
+        .category-card { background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 12px 25px rgba(97,28,5,0.05); transition:0.4s; display:flex; flex-direction:column; border:1px solid #f5eae1; text-align:center; }
+        .category-card:hover { transform:translateY(-8px); box-shadow:0 15px 35px rgba(97,28,5,0.12); }
+        .card-img { width:100%; height:280px; object-fit:cover; }
+        .card-content { padding:2rem; display:flex; flex-direction:column; flex-grow:1; }
+        .card-content h2 { font-family:'Playfair Display', serif; font-size:1.6rem; color:#4a2312; margin-bottom:1rem; }
+        
+        .btn { display:inline-block; padding:0.8rem 1.8rem; border-radius:30px; font-weight:600; text-decoration:none; transition:0.3s; text-align:center; margin-top:auto; }
+        .btn-primary { background:#4a2312; color:white; }
+        .btn-primary:hover { background:#6e371c; }
+        
+        footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; font-size:0.95rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="shahiweb.html" class="logo">shahihennaholic</a>
+        <div class="nav-links">
+            <a href="shahiweb.html" class="active">🏠 Home</a>
+            <a href="cones.html">🍃 Cones & Storage</a>
+            <a href="styles.html">🎨 Mehndi Styles</a>
+            <a href="reviews.html">⭐ Reviews & Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Shahi Henna Artistry</h1>
+        <p>Organic Fresh Cones | Traditional Mehndi at Your Doorstep</p>
+    </section>
+
+    <h2 class="section-title">📸 Our Recent Work</h2>
+
+    <main class="main-container">
+        <div class="category-card">
+            <img src="imges/bridal.jpg" alt="Bridal Mehndi" class="card-img">
+            <div class="card-content">
+                <h2>Bridal Mehndi</h2>
+                <a href="styles.html" class="btn btn-primary">Explore Designs</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="imges/organic.jfif" alt="Organic Cones" class="card-img">
+            <div class="card-content">
+                <h2>Organic Cones</h2>
+                <a href="cones.html" class="btn btn-primary">View Cone Care</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="imges/arabic.jfif" alt="Arabic Full Hand" class="card-img">
+            <div class="card-content">
+                <h2>Arabic & Hand Styles</h2>
+                <a href="styles.html" class="btn btn-primary">View Portfolio</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="imges/feet.jfif" alt="Feet Mehndi" class="card-img">
+            <div class="card-content">
+                <h2>Feet Mehndi</h2>
+                <a href="styles.html" class="btn btn-primary">See More</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>shahihennaholic • Premium Organic Mehndi Artistry</footer>
+
+</body>
+</html>
