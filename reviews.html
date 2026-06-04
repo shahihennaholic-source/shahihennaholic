@@ -6,10 +6,6 @@
     <title>Reviews & Contact | Shahi Henna</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     
-    <!-- Valine Global Review System Core Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js"></script>
-
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:'Poppins', sans-serif; background:#fffaf5; color:#3d2314; padding-top:140px; }
@@ -29,13 +25,21 @@
         .instagram-btn { display: inline-block; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 600; margin-top: 1rem; transition: 0.3s; text-align: center; }
         .instagram-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(220,39,67,0.3); }
 
-        /* Styling customization overrides for the public Valine container */
-        #vcomments { margin-top: 10px; }
-        .v .vwrap { border-color: #e1d4ca !important; border-radius: 12px !important; background: #fffdfb !important; }
-        .v .vbtn { background: #4a2312 !important; color: white !important; border: none !important; border-radius: 20px !important; padding: 8px 25px !important; font-weight: 600; }
-        .v .vbtn:hover { background: #6e371c !important; }
-        .v .vheader input { border-bottom: 1px dashed #e1d4ca !important; }
-        .v .vheader input:focus { border-bottom: 1px solid #4a2312 !important; }
+        /* Custom styling rules to forcefully hide errors, emojis, and branding footers */
+        iframe[src*="disqus"], #disqus_thread {
+            width: 100% !important;
+            border: none !important;
+        }
+
+        /* Security cleanup for external comment systems */
+        .vallow, .vinfo, .vpower, .vsys, .vcount, .vedit .vctrl, .vstatus {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
 
         footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; }
 
@@ -68,9 +72,9 @@
         <!-- Left Side Layout Box: Contact Info -->
         <div class="section-box">
             <h2>Get In Touch</h2>
-            <p class="contact-info"><strong>🎨 Brand Name:</strong> Shahi Henna Artistry</p>
-            <p class="contact-info"><strong>📍 Bookings:</strong> Available for local event appointments & custom bridal set orders</p>
-            <p class="contact-info"><strong>🌿 Quality Guarantee:</strong> 100% Organic, fresh chemical-free handmade henna cones</p>
+            <p class="contact-info"><strong>Brand Name:</strong> Shahi Henna Artistry</p>
+            <p class="contact-info"><strong>Bookings:</strong> Available for local event appointments & custom bridal set orders</p>
+            <p class="contact-info"><strong>Quality Guarantee:</strong> 100% Organic, fresh chemical-free handmade henna cones</p>
             <p class="contact-info">To place an order, view specific pricing details, or check slot availability, contact us via Instagram below:</p>
             <a href="https://www.instagram.com/shahihennaholic" target="_blank" class="instagram-btn">Follow @shahihennaholic</a>
         </div>
@@ -78,41 +82,26 @@
         <!-- Right Side Layout Box: Real-Time Shared Global Reviews -->
         <div class="section-box">
             <h2>Customer Reviews</h2>
-            <!-- Clean, shared user comment container targeting name and email fields only -->
-            <div id="vcomments"></div>
+            <div id="disqus_thread"></div>
         </div>
     </div>
 
     <footer>shahihennaholic • Premium Organic Mehndi Artistry</footer>
 
     <script>
-        // Automatic global database allocation to store reviews permanently for all viewers online
-        new Valine({
-            el: '#vcomments',
-            appId: 'b7V7N86Yh3uP9Nol3pL9K0h1-gzGzoHsz',
-            appKey: 'qR3oLp9N8uV7b3M2oK1h5n9G',
-            placeholder: 'Share your sweet feedback here...',
-            avatar: 'mp',
-            pageSize: 10,
-            lang: 'en',
-            // Restricts the review block inputs strictly to Name and Email fields only
-            fields: ['nick', 'mail'],
-            requiredFields: ['nick', 'mail']
-        });
+        // Official Disqus config to keep reviews working globally across the web
+        var disqus_config = function () {
+            this.page.url = window.location.href;  
+            this.page.identifier = 'shahihennaholic_reviews_main'; 
+        };
 
-        // Small cosmetic layout filter to keep the form look ultra clean and clear
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(() => {
-                const linkInput = document.querySelector('input[name="link"]');
-                if (linkInput) linkInput.style.display = 'none';
-                
-                const nickLabel = document.querySelector('input[name="nick"]');
-                if (nickLabel) nickLabel.setAttribute('placeholder', 'Your Name *');
-                
-                const mailLabel = document.querySelector('input[name="mail"]');
-                if (mailLabel) mailLabel.setAttribute('placeholder', 'Your Email *');
-            }, 800);
-        });
+        (function() { 
+            var d = document, s = d.createElement('script');
+            // Connects directly to your project registered channel name
+            s.src = 'https://shahihennahaa.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
 </body>
 </html>
