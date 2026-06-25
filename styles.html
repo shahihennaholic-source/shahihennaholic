@@ -3,67 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehndi Styles Portfolio | Shahi Henna</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <title>Mehndi Styles | Shahi Henna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --deep: #2a0f04; --rich: #4a2312; --warm: #b83b14;
+            --gold: #d4a843; --cream: #fffaf3; --parchment: #f7ede0;
+            --text: #3d2314; --muted: #8a6255;
+        }
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Poppins', sans-serif; background:#fffaf5; color:#3d2314; padding-top:140px; }
-        
-        .navbar { position:fixed; top:0; width:100%; z-index:1000; background:#4a2312; display:flex; justify-content:space-between; align-items:center; padding:1.2rem 4rem; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
-        .logo { color:#fcdfa9; font-family:'Playfair Display', serif; font-size:2rem; font-weight:700; text-decoration:none; }
-        .nav-links { display:flex; gap:1.5rem; }
-        .nav-links a { text-decoration:none; color:#fff; font-weight:500; padding:0.6rem 1.2rem; border-radius:20px; transition:0.3s; font-size:0.95rem; }
-        .nav-links a:hover, .nav-links a.active { background:#fffaf5; color:#4a2312; }
+        body { font-family:'Nunito', sans-serif; background:var(--cream); color:var(--text); padding-top:90px; }
 
-        .title-section { text-align:center; margin-bottom:4rem; }
-        .title-section h1 { font-family:'Playfair Display', serif; font-size:3rem; color:#4a2312; }
+        .navbar { position:fixed; top:0; width:100%; z-index:1000; background:rgba(42,15,4,0.97); backdrop-filter:blur(12px); display:flex; justify-content:space-between; align-items:center; padding:1rem 5rem; }
+        .logo { color:var(--gold); font-family:'Cormorant Garamond', serif; font-size:1.9rem; font-weight:700; text-decoration:none; }
+        .logo em { color:rgba(255,255,255,0.5); font-style:italic; font-size:0.75rem; display:block; letter-spacing:0.15em; line-height:1; text-transform:uppercase; font-family:'Nunito',sans-serif; }
+        .nav-links { display:flex; gap:0.3rem; }
+        .nav-links a { text-decoration:none; color:rgba(255,255,255,0.75); font-weight:600; padding:0.55rem 1.1rem; border-radius:40px; transition:0.3s; font-size:0.82rem; letter-spacing:0.06em; text-transform:uppercase; }
+        .nav-links a:hover, .nav-links a.active { background:var(--gold); color:var(--deep); }
 
-        .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:2.5rem; padding:0 8% 5rem 8%; }
-        .gallery-item { background:white; border-radius:20px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.04); border:1px solid #f2e4d9; transition:0.3s; }
-        .gallery-item:hover { transform:scale(1.02); }
-        .gallery-item img { width:100%; height:360px; object-fit:cover; }
-        .caption { padding:1.2rem; text-align:center; font-size:1.05rem; font-weight:600; color:#4a2312; background:#fffefc; }
+        /* PAGE HERO */
+        .page-hero {
+            background: linear-gradient(135deg, var(--deep) 0%, #5a1e0a 50%, var(--deep) 100%);
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content:'';
+            position:absolute; inset:0;
+            background:radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.12) 0%, transparent 55%),
+                       radial-gradient(ellipse at 80% 30%, rgba(184,59,20,0.1) 0%, transparent 50%);
+        }
+        .hero-ornament { font-size:2.5rem; margin-bottom:1rem; display:block; position:relative; filter:drop-shadow(0 0 20px rgba(212,168,67,0.6)); }
+        .page-hero h1 { font-family:'Cormorant Garamond', serif; font-size:4rem; color:#fff; position:relative; }
+        .page-hero h1 em { color:var(--gold); font-style:italic; }
+        .page-hero p { color:rgba(255,255,255,0.6); margin-top:0.7rem; font-size:1rem; position:relative; letter-spacing:0.05em; }
 
-        footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; }
+        /* FILTER TABS */
+        .filter-wrap { display:flex; justify-content:center; gap:0.7rem; flex-wrap:wrap; padding:3rem 2rem 2rem; }
+        .filter-btn { background:white; border:1.5px solid var(--parchment); color:var(--muted); padding:0.6rem 1.4rem; border-radius:30px; cursor:pointer; font-family:'Nunito',sans-serif; font-size:0.85rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; transition:0.3s; }
+        .filter-btn:hover, .filter-btn.active { background:var(--rich); color:#fff; border-color:var(--rich); }
 
-        @media (max-width: 768px) {
-            body { padding-top: 160px; }
-            .navbar { padding: 1rem; flex-direction: column; gap: 0.8rem; }
-            .logo { font-size: 1.6rem; }
-            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.4rem; }
-            .nav-links a { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
-            .title-section { margin-bottom: 2rem; }
-            .title-section h1 { font-size: 2rem; }
-            .gallery-grid { padding: 0 4% 3rem 4%; gap: 1.5rem; }
-            .gallery-item img { height: 300px; }
+        /* MASONRY GRID */
+        .gallery-grid {
+            columns: 3;
+            column-gap: 1.5rem;
+            padding: 1rem 5% 6rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            break-inside: avoid;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(42,15,4,0.06);
+            border: 1px solid var(--parchment);
+            transition: 0.4s cubic-bezier(.34,1.56,.64,1);
+            cursor: pointer;
+            position: relative;
+        }
+        .gallery-item:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 50px rgba(42,15,4,0.15); }
+        .gallery-item img { width:100%; display:block; transition:0.5s; }
+        .gallery-item:hover img { transform:scale(1.04); }
+        .gallery-caption {
+            padding: 1.2rem 1.5rem;
+            display: flex; justify-content:space-between; align-items:center;
+        }
+        .caption-text h3 { font-family:'Cormorant Garamond', serif; color:var(--rich); font-size:1.15rem; }
+        .caption-text p { color:var(--muted); font-size:0.78rem; letter-spacing:0.05em; text-transform:uppercase; margin-top:0.15rem; }
+        .caption-badge { background:var(--parchment); color:var(--warm); font-size:0.72rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:20px; }
+
+        /* LIGHTBOX */
+        .lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; display:none; align-items:center; justify-content:center; padding:2rem; }
+        .lightbox.open { display:flex; }
+        .lightbox img { max-width:90vw; max-height:90vh; border-radius:16px; object-fit:contain; }
+        .lightbox-close { position:absolute; top:1.5rem; right:2rem; color:#fff; font-size:2.5rem; cursor:pointer; opacity:0.7; line-height:1; }
+        .lightbox-close:hover { opacity:1; }
+
+        footer { background:var(--deep); color:rgba(255,255,255,0.45); text-align:center; padding:3rem 2rem; }
+        .footer-logo { font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:var(--gold); display:block; margin-bottom:0.5rem; }
+        .footer-copy { font-size:0.78rem; }
+
+        @media(max-width:900px) { .gallery-grid { columns:2; } }
+        @media(max-width:600px) {
+            body { padding-top:80px; }
+            .navbar { padding:0.8rem 1.2rem; }
+            .logo em { display:none; }
+            .nav-links a { padding:0.4rem 0.7rem; font-size:0.78rem; }
+            .page-hero h1 { font-size:2.6rem; }
+            .gallery-grid { columns:1; padding:1rem 4% 4rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="index.html" class="logo">shahihennaholic</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="cones.html">Cones & Storage</a>
-            <a href="styles.html" class="active">Mehndi Styles</a>
-            <a href="reviews.html">Reviews & Contact</a>
-        </div>
-    </nav>
+<nav class="navbar">
+    <a href="index.html" class="logo">
+        shahihennaholic
+        <em>Organic Mehndi Artistry</em>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cones.html">Cones</a>
+        <a href="styles.html" class="active">Styles</a>
+        <a href="reviews.html">Reviews</a>
+    </div>
+</nav>
 
-    <div class="title-section">
-        <h1>Our Design Catalog</h1>
+<div class="page-hero">
+    <span class="hero-ornament"></span>
+    <h1>Our Design <em>Catalog</em></h1>
+    <p>Handcrafted mehndi art for every occasion — bridal, festive & everyday</p>
+</div>
+
+<div class="filter-wrap">
+    <button class="filter-btn active" onclick="filterItems('all', this)">All Designs</button>
+    <button class="filter-btn" onclick="filterItems('bridal', this)">Bridal</button>
+    <button class="filter-btn" onclick="filterItems('mandala', this)">Mandala</button>
+    <button class="filter-btn" onclick="filterItems('minimal', this)">Minimal</button>
+    <button class="filter-btn" onclick="filterItems('length', this)">Length Styles</button>
+</div>
+
+<div class="gallery-grid" id="galleryGrid">
+
+    <div class="gallery-item" data-cat="bridal" onclick="openLightbox('images/Bridal Mehandi designs.jpeg')">
+        <img src="images/Bridal Mehandi designs.jpeg" alt="Bridal Design">
+        <div class="gallery-caption">
+            <div class="caption-text">
+                <h3>Bridal Design</h3>
+                <p>Signature Collection</p>
+            </div>
+            <span class="caption-badge">Bridal</span>
+        </div>
     </div>
 
-    <section class="gallery-grid">
-        <div class="gallery-item"><img src="images/Bridal Mehandi designs.jpeg"><div class="caption">Bridal Design</div></div>
-        <div class="gallery-item"><img src="images/Elbow length design front and back.jpeg"><div class="caption">Elbow Length Layout</div></div>
-        <div class="gallery-item"><img src="images/Mandala design front and back.jpeg"><div class="caption">Mandala Design</div></div>
-        <div class="gallery-item"><img src="images/Mid length design front and back.jpeg"><div class="caption">Mid Length Layout</div></div>
-        <div class="gallery-item"><img src="images/Minimal design.jpeg"><div class="caption">Minimal Style</div></div>
-        <div class="gallery-item"><img src="images/Palm length design front and back.jpeg"><div class="caption">Palm Length Style</div></div>
-    </section>
+    <div class="gallery-item" data-cat="length" onclick="openLightbox('images/Elbow length design front and back.jpeg')">
+        <img src="images/Elbow length design front and back.jpeg" alt="Elbow Length">
+        <div class="gallery-caption">
+            <div class="caption-text">
+                <h3>Elbow Length</h3>
+                <p>Front & Back Layout</p>
+            </div>
+            <span class="caption-badge">Length</span>
+        </div>
+    </div>
 
-    <footer>shahihennaholic • Premium Organic Mehndi Artistry</footer>
+    <div class="gallery-item" data-cat="mandala" onclick="openLightbox('images/Mandala design front and back.jpeg')">
+        <img src="images/Mandala design front and back.jpeg" alt="Mandala">
+        <div class="gallery-caption">
+            <div class="caption-text">
+                <h3>Mandala Design</h3>
+                <p>Sacred Geometry</p>
+            </div>
+            <span class="caption-badge">Mandala</span>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-cat="length" onclick="openLightbox('images/Mid length design front and back.jpeg')">
+        <img src="images/Mid length design front and back.jpeg" alt="Mid Length">
+        <div class="gallery-caption">
+            <div class="caption-text">
+                <h3>Mid Length</h3>
+                <p>Front & Back Layout</p>
+            </div>
+            <span class="caption-badge">Length</span>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-cat="minimal" onclick="openLightbox('images/Minimal design.jpeg')">
+        <img src="images/Minimal design.jpeg" alt="Minimal">
+        <div class="gallery-caption">
+            <div class="caption-text">
+                <h3>Minimal Style</h3>
+                <p>Modern Elegance</p>
+            </div>
+            <span class="caption-badge">Minimal</span>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-cat="length" onclick="openLightbox('images/Palm length design front and back.jpeg')">
+        <img src="images/Palm length design front and back.jpeg" alt="Palm Length">
+        <div class="gallery-caption">
+            <div class="caption-text">
+                <h3>Palm Length</h3>
+                <p>Everyday Elegance</p>
+            </div>
+            <span class="caption-badge">Length</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <img id="lightboxImg" src="" alt="">
+</div>
+
+<footer>
+    <span class="footer-logo">shahihennaholic</span>
+    <p class="footer-copy">© 2025 shahihennaholic · Premium Organic Mehndi Artistry</p>
+</footer>
+
+<script>
+    function filterItems(cat, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            const show = cat === 'all' || item.dataset.cat === cat;
+            item.style.display = show ? 'block' : 'none';
+        });
+    }
+    function openLightbox(src) {
+        document.getElementById('lightboxImg').src = src;
+        document.getElementById('lightbox').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+</script>
+
 </body>
 </html>
