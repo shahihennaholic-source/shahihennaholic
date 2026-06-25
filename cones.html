@@ -4,114 +4,252 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cones & Storage | Shahi Henna</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --deep: #2a0f04; --rich: #4a2312; --warm: #b83b14;
+            --gold: #d4a843; --cream: #fffaf3; --parchment: #f7ede0;
+            --text: #3d2314; --muted: #8a6255;
+        }
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Poppins', sans-serif; background:#fffaf5; color:#3d2314; padding-top:140px; }
-        
-        .navbar { position:fixed; top:0; width:100%; z-index:1000; background:#4a2312; display:flex; justify-content:space-between; align-items:center; padding:1.2rem 4rem; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
-        .logo { color:#fcdfa9; font-family:'Playfair Display', serif; font-size:2rem; font-weight:700; text-decoration:none; }
-        .nav-links { display:flex; gap:1.5rem; }
-        .nav-links a { text-decoration:none; color:#fff; font-weight:500; padding:0.6rem 1.2rem; border-radius:20px; transition:0.3s; font-size:0.95rem; }
-        .nav-links a:hover, .nav-links a.active { background:#fffaf5; color:#4a2312; }
+        body { font-family:'Nunito', sans-serif; background:var(--cream); color:var(--text); padding-top:90px; }
 
-        .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
-        .page-title { text-align:center; font-family:'Playfair Display', serif; font-size:2.8rem; color:#4a2312; margin-bottom:3rem; }
-        
-        .cone-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:2.5rem; margin-bottom:4rem; }
-        .cone-card { background:white; border-radius:20px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.04); text-align:center; border:1px solid #f2e4d9; }
-        .cone-card img { width:100%; height:320px; object-fit:cover; }
-        .cone-card h3 { padding:1.5rem; color:#4a2312; font-family:'Playfair Display', serif; font-size:1.3rem; }
+        .navbar { position:fixed; top:0; width:100%; z-index:1000; background:rgba(42,15,4,0.97); backdrop-filter:blur(12px); display:flex; justify-content:space-between; align-items:center; padding:1rem 5rem; }
+        .logo { color:var(--gold); font-family:'Cormorant Garamond', serif; font-size:1.9rem; font-weight:700; text-decoration:none; }
+        .logo em { color:rgba(255,255,255,0.5); font-style:italic; font-size:0.75rem; display:block; letter-spacing:0.15em; line-height:1; text-transform:uppercase; font-family:'Nunito',sans-serif; }
+        .nav-links { display:flex; gap:0.3rem; }
+        .nav-links a { text-decoration:none; color:rgba(255,255,255,0.75); font-weight:600; padding:0.55rem 1.1rem; border-radius:40px; transition:0.3s; font-size:0.82rem; letter-spacing:0.06em; text-transform:uppercase; }
+        .nav-links a:hover, .nav-links a.active { background:var(--gold); color:var(--deep); }
 
-        .care-list { list-style:none; }
-        .care-list li { padding:0.8rem 0; border-bottom:1px solid #fcf2e8; font-size:0.95rem; color:#4a3931; display:flex; align-items:center; }
-        .care-list li:last-child { border-bottom:none; }
-        .dot { width:8px; height:8px; background:#b83b14; border-radius:50%; margin-right:1rem; flex-shrink:0; }
+        /* PAGE HERO */
+        .page-hero {
+            background: linear-gradient(135deg, var(--deep) 0%, #4a1e08 50%, var(--deep) 100%);
+            padding: 6rem 2rem 5rem; text-align: center; position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content:'';
+            position:absolute; inset:0;
+            background:radial-gradient(ellipse at 60% 40%, rgba(212,168,67,0.12) 0%, transparent 55%);
+        }
+        .hero-ornament { font-size:2.5rem; margin-bottom:1rem; display:block; position:relative; filter:drop-shadow(0 0 20px rgba(212,168,67,0.6)); }
+        .page-hero h1 { font-family:'Cormorant Garamond', serif; font-size:4rem; color:#fff; position:relative; }
+        .page-hero h1 em { color:var(--gold); font-style:italic; }
+        .page-hero p { color:rgba(255,255,255,0.6); margin-top:0.7rem; font-size:1rem; position:relative; }
 
-        .care-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:2.5rem; margin-bottom:4rem; }
-        .care-box { background:white; border-radius:20px; padding:2.5rem; box-shadow:0 8px 25px rgba(0,0,0,0.04); border-top:6px solid #4a2312; }
-        .care-box h2 { font-family:'Playfair Display', serif; color:#4a2312; margin-bottom:1.5rem; text-align:center; }
-        
-        .storage-box { background:white; border-radius:20px; padding:3rem; box-shadow:0 8px 25px rgba(0,0,0,0.04); border-top:6px solid #b83b14; margin-bottom:4rem; }
-        .storage-box h2 { font-family:'Playfair Display', serif; color:#4a2312; margin-bottom:1.5rem; text-align:center; }
+        /* CONE TYPES */
+        .section { padding:5rem 5% 4rem; max-width:1200px; margin:0 auto; }
+        .section-eyebrow { text-align:center; color:var(--warm); font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; margin-bottom:0.8rem; }
+        .section-title { text-align:center; font-family:'Cormorant Garamond', serif; font-size:clamp(2rem,5vw,3rem); color:var(--rich); margin-bottom:3rem; }
+        .section-title em { color:var(--warm); font-style:italic; }
 
-        footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; margin-top:4rem; }
+        .cone-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin-bottom:5rem; }
+        .cone-card { background:white; border-radius:24px; overflow:hidden; box-shadow:0 16px 45px rgba(42,15,4,0.08); transition:0.4s; border:1px solid var(--parchment); }
+        .cone-card:hover { transform:translateY(-8px); box-shadow:0 25px 60px rgba(42,15,4,0.14); }
+        .cone-card img { width:100%; height:360px; object-fit:cover; transition:0.5s; display:block; }
+        .cone-card:hover img { transform:scale(1.04); }
+        .cone-label { padding:1.8rem 2rem; }
+        .cone-label h3 { font-family:'Cormorant Garamond', serif; font-size:1.6rem; color:var(--rich); margin-bottom:0.4rem; }
+        .cone-label p { color:var(--muted); font-size:0.88rem; line-height:1.6; }
 
-        @media (max-width: 768px) {
-            body { padding-top: 160px; }
-            .navbar { padding: 1rem; flex-direction: column; gap: 0.8rem; }
-            .logo { font-size: 1.6rem; }
-            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.4rem; }
-            .nav-links a { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
-            .page-title { font-size: 2rem; margin-bottom: 2rem; }
-            .cone-grid, .care-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .care-box, .storage-box { padding: 1.5rem; }
-            .container { padding: 0 1rem; }
+        /* STORAGE BANNER */
+        .storage-banner {
+            background:linear-gradient(135deg, #0a2a3d 0%, #093548 60%, #0a2a3d 100%);
+            border-radius:28px;
+            padding:4rem;
+            margin-bottom:5rem;
+            position:relative; overflow:hidden;
+        }
+        .storage-banner::before { content:'🧊'; position:absolute; font-size:18rem; opacity:0.04; right:-2rem; top:-3rem; pointer-events:none; }
+        .storage-banner h2 { font-family:'Cormorant Garamond', serif; color:#fff; font-size:2.5rem; margin-bottom:0.5rem; }
+        .storage-banner h2 span { color:#7dd3fc; font-style:italic; }
+        .storage-banner > p { color:rgba(255,255,255,0.55); margin-bottom:2.5rem; font-size:0.95rem; }
+        .storage-steps { display:grid; grid-template-columns:repeat(5,1fr); gap:1.2rem; }
+        .storage-step { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:1.5rem 1rem; text-align:center; }
+        .storage-step .s-icon { font-size:1.8rem; display:block; margin-bottom:0.7rem; }
+        .storage-step p { color:rgba(255,255,255,0.8); font-size:0.82rem; line-height:1.55; }
+
+        /* CARE CARDS */
+        .care-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
+        .care-card { background:white; border-radius:24px; overflow:hidden; box-shadow:0 16px 45px rgba(42,15,4,0.07); }
+        .care-header { padding:2rem 2.5rem; }
+        .care-header.before { background:linear-gradient(135deg, var(--rich), #6e2208); }
+        .care-header.after { background:linear-gradient(135deg, #1a4a2a, #2d6b3f); }
+        .care-header-icon { font-size:2rem; margin-bottom:0.8rem; display:block; }
+        .care-header h2 { font-family:'Cormorant Garamond', serif; color:#fff; font-size:1.7rem; }
+        .care-header p { color:rgba(255,255,255,0.6); font-size:0.85rem; margin-top:0.3rem; }
+        .care-body { padding:2rem 2.5rem; }
+        .care-item { display:flex; align-items:flex-start; gap:1rem; padding:0.9rem 0; border-bottom:1px solid var(--parchment); }
+        .care-item:last-child { border-bottom:none; }
+        .care-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:6px; }
+        .care-dot.red { background:var(--warm); }
+        .care-dot.green { background:#2d9948; }
+        .care-item p { color:#4a3931; font-size:0.9rem; line-height:1.6; }
+
+        /* FOOTER */
+        footer { background:var(--deep); color:rgba(255,255,255,0.45); text-align:center; padding:3rem 2rem; }
+        .footer-logo { font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:var(--gold); display:block; margin-bottom:0.5rem; }
+        .footer-copy { font-size:0.78rem; }
+
+        @media(max-width:900px) {
+            .cone-grid, .care-grid { grid-template-columns:1fr; }
+            .storage-steps { grid-template-columns:repeat(3,1fr); }
+        }
+        @media(max-width:600px) {
+            body { padding-top:80px; }
+            .navbar { padding:0.8rem 1.2rem; }
+            .logo em { display:none; }
+            .nav-links a { padding:0.4rem 0.7rem; font-size:0.78rem; }
+            .page-hero h1 { font-size:2.6rem; }
+            .section { padding:3rem 4% 2rem; }
+            .storage-banner { padding:2.5rem 1.5rem; }
+            .storage-steps { grid-template-columns:1fr 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="index.html" class="logo">shahihennaholic</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="cones.html" class="active">Cones & Storage</a>
-            <a href="styles.html">Mehndi Styles</a>
-            <a href="reviews.html">Reviews & Contact</a>
-        </div>
-    </nav>
+<nav class="navbar">
+    <a href="index.html" class="logo">
+        shahihennaholic
+        <em>Organic Mehndi Artistry</em>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cones.html" class="active">Cones</a>
+        <a href="styles.html">Styles</a>
+        <a href="reviews.html">Reviews</a>
+    </div>
+</nav>
 
-    <div class="container">
-        <h1 class="page-title">Cone Varieties & Care Instructions</h1>
-        
-        <div class="cone-grid">
-            <div class="cone-card">
-                <img src="images/Nail cones .jpeg" alt="Nail Cones">
+<div class="page-hero">
+    <span class="hero-ornament"></span>
+    <h1>Cone <em>Varieties</em> & Care</h1>
+    <p>Premium organic henna cones — and how to get the deepest stain possible</p>
+</div>
+
+<div class="section">
+
+    <!-- CONE TYPES -->
+    <p class="section-eyebrow">✦ Our Cones ✦</p>
+    <h2 class="section-title">Choose Your <em>Perfect Cone</em></h2>
+
+    <div class="cone-grid">
+        <div class="cone-card">
+            <img src="images/Nail cones .jpeg" alt="Nail Cones">
+            <div class="cone-label">
                 <h3>Nail Cones</h3>
+                <p>Precision-tipped for intricate nail art and detailed finger designs. Perfect for achieving fine, delicate patterns.</p>
             </div>
-            <div class="cone-card">
-                <img src="images/Normal cones and bridal cones.jpeg" alt="Bridal Cones">
+        </div>
+        <div class="cone-card">
+            <img src="images/Normal cones and bridal cones.jpeg" alt="Bridal Cones">
+            <div class="cone-label">
                 <h3>Normal & Bridal Cones</h3>
-            </div>
-        </div>
-
-        <div class="storage-box">
-            <h2>Cone Storage Instructions</h2>
-            <ul class="care-list">
-                <li><span class="dot"></span>Store cones in the freezer immediately after receiving your order.</li>
-                <li><span class="dot"></span>Cones remain fresh and fully potent for up to 2-3 months when kept frozen.</li>
-                <li><span class="dot"></span>Keep outside at room temperature for 20-30 minutes before starting application.</li>
-                <li><span class="dot"></span>Do not refreeze a cone once it has been fully thawed.</li>
-                <li><span class="dot"></span>Proper freezer storage ensures a vibrant, rich color output.</li>
-            </ul>
-        </div>
-
-        <div class="care-grid">
-            <div class="care-box">
-                <h2>Before Care (Before Applying)</h2>
-                <ul class="care-list">
-                    <li><span class="dot"></span>Ensure skin area is completely clean & dry.</li>
-                    <li><span class="dot"></span>Avoid applying any oil, lotion, cream, or soap residue.</li>
-                    <li><span class="dot"></span>Do not wax or bleach the area within 2 days of application.</li>
-                    <li><span class="dot"></span>Good natural body heat helps the stain develop beautifully.</li>
-                    <li><span class="dot"></span>Leaving henna on overnight yields the deepest possible colors.</li>
-                </ul>
-            </div>
-
-            <div class="care-box">
-                <h2>After Care (After Removal)</h2>
-                <ul class="care-list">
-                    <li><span class="dot"></span>Keep the henna design on for a minimum of 6–8 hours.</li>
-                    <li><span class="dot"></span>Scrape paste away gently; do not use water for removal.</li>
-                    <li><span class="dot"></span>Soak with coconut or clove oil to loosen dry crust flakes.</li>
-                    <li><span class="dot"></span>Avoid water, liquid soaps, or sanitizers for at least 12 hours.</li>
-                    <li><span class="dot"></span>The henna stain darkens naturally over the next 24–48 hours.</li>
-                </ul>
+                <p>Versatile normal cones for everyday use, and rich bridal cones with enhanced colour depth for wedding ceremonies.</p>
             </div>
         </div>
     </div>
 
-    <footer>shahihennaholic • Premium Organic Mehndi Artistry</footer>
+    <!-- STORAGE BANNER -->
+    <div class="storage-banner">
+        <h2>🧊 Cone Storage <span>Instructions</span></h2>
+        <p>Follow these steps to preserve maximum colour potency and freshness</p>
+        <div class="storage-steps">
+            <div class="storage-step">
+                <span class="s-icon">📦</span>
+                <p>Freeze immediately upon receiving your order</p>
+            </div>
+            <div class="storage-step">
+                <span class="s-icon">🗓️</span>
+                <p>Stays fresh & potent for 2–3 months when frozen</p>
+            </div>
+            <div class="storage-step">
+                <span class="s-icon">⏱️</span>
+                <p>Thaw at room temperature for 20–30 mins before use</p>
+            </div>
+            <div class="storage-step">
+                <span class="s-icon">🚫</span>
+                <p>Never refreeze a cone once fully thawed</p>
+            </div>
+            <div class="storage-step">
+                <span class="s-icon">🌈</span>
+                <p>Proper storage ensures vibrant, rich colour output</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARE CARDS -->
+    <p class="section-eyebrow">✦ Application Care ✦</p>
+    <h2 class="section-title">Before & After <em>Care Guide</em></h2>
+
+    <div class="care-grid">
+        <div class="care-card">
+            <div class="care-header before">
+                <span class="care-header-icon">🌿</span>
+                <h2>Before Care</h2>
+                <p>Prepare your skin for the deepest stain</p>
+            </div>
+            <div class="care-body">
+                <div class="care-item">
+                    <div class="care-dot red"></div>
+                    <p>Ensure skin area is completely clean and dry before application</p>
+                </div>
+                <div class="care-item">
+                    <div class="care-dot red"></div>
+                    <p>Avoid applying oil, lotion, cream, or any soap residue</p>
+                </div>
+                <div class="care-item">
+                    <div class="care-dot red"></div>
+                    <p>Do not wax or bleach the area within 2 days of application</p>
+                </div>
+                <div class="care-item">
+                    <div class="care-dot red"></div>
+                    <p>Good natural body heat helps the stain develop beautifully</p>
+                </div>
+                <div class="care-item">
+                    <div class="care-dot red"></div>
+                    <p>Leaving henna on overnight yields the deepest possible colour</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="care-card">
+            <div class="care-header after">
+                <span class="care-header-icon">✨</span>
+                <h2>After Care</h2>
+                <p>Maximise your stain's depth and longevity</p>
+            </div>
+            <div class="care-body">
+                <div class="care-item">
+                    <div class="care-dot green"></div>
+                    <p>Keep the henna design on for a minimum of 6–8 hours</p>
+                </div>
+                <div class="care-item">
+                    <div class="care-dot green"></div>
+                    <p>Scrape paste away gently — do not use water for removal</p>
+                </div>
+                <div class="care-item">
+                    <div class="care-dot green"></div>
+                    <p>Soak with coconut or clove oil to loosen dry crust flakes</p>
+                </div>
+                <div class="care-item">
+                    <div class="care-dot green"></div>
+                    <p>Avoid water, liquid soaps, or sanitisers for at least 12 hours</p>
+                </div>
+                <div class="care-item">
+                    <div class="care-dot green"></div>
+                    <p>The stain darkens naturally and beautifully over 24–48 hours</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <span class="footer-logo">shahihennaholic</span>
+    <p class="footer-copy">© 2025 shahihennaholic · Premium Organic Mehndi Artistry</p>
+</footer>
+
 </body>
 </html>
