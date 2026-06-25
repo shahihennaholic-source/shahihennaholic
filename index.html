@@ -4,104 +4,325 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shahi Henna | Organic Mehndi Artistry</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --deep: #2a0f04;
+            --rich: #4a2312;
+            --warm: #b83b14;
+            --gold: #d4a843;
+            --gold-light: #f0c96a;
+            --cream: #fffaf3;
+            --parchment: #f7ede0;
+            --text: #3d2314;
+            --muted: #8a6255;
+        }
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Poppins', sans-serif; background:#fffaf5; color:#3d2314; padding-top:100px; }
-        
-        .navbar { position:fixed; top:0; width:100%; z-index:1000; background:#4a2312; display:flex; justify-content:space-between; align-items:center; padding:1.2rem 4rem; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
-        .logo { color:#fcdfa9; font-family:'Playfair Display', serif; font-size:2rem; font-weight:700; text-decoration:none; }
-        .nav-links { display:flex; gap:1.5rem; }
-        .nav-links a { text-decoration:none; color:#fff; font-weight:500; padding:0.6rem 1.2rem; border-radius:20px; transition:0.3s; font-size:0.95rem; border:1px solid transparent; }
-        .nav-links a:hover, .nav-links a.active { background:#fffaf5; color:#4a2312; border-color:#fffaf5; }
+        body { font-family:'Nunito', sans-serif; background:var(--cream); color:var(--text); }
 
-        .hero { height:55vh; background: linear-gradient(rgba(48, 12, 1, 0.55), rgba(48, 12, 1, 0.65)), url("images/Bridal Mehandi designs.jpeg") no-repeat center center/cover; display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; color:white; padding:2rem; margin-bottom:2rem; }
-        .hero h1 { font-family:'Playfair Display', serif; font-size:4rem; color:#fcdfa9; margin-bottom:1rem; text-shadow:2px 2px 10px rgba(0,0,0,0.6); }
-        .hero p { font-size:1.3rem; max-width:750px; font-weight:300; text-shadow:1px 1px 5px rgba(0,0,0,0.5); }
+        /* NAVBAR */
+        .navbar { position:fixed; top:0; width:100%; z-index:1000; background:rgba(42,15,4,0.97); backdrop-filter:blur(12px); display:flex; justify-content:space-between; align-items:center; padding:1rem 5rem; transition:0.3s; }
+        .logo { color:var(--gold); font-family:'Cormorant Garamond', serif; font-size:1.9rem; font-weight:700; text-decoration:none; letter-spacing:0.02em; }
+        .logo em { color:rgba(255,255,255,0.5); font-style:italic; font-size:0.75rem; display:block; letter-spacing:0.15em; line-height:1; text-transform:uppercase; font-family:'Nunito',sans-serif; }
+        .nav-links { display:flex; gap:0.3rem; }
+        .nav-links a { text-decoration:none; color:rgba(255,255,255,0.75); font-weight:600; padding:0.55rem 1.1rem; border-radius:40px; transition:0.3s; font-size:0.82rem; letter-spacing:0.06em; text-transform:uppercase; }
+        .nav-links a:hover, .nav-links a.active { background:var(--gold); color:var(--deep); }
 
-        .section-title { text-align:center; margin:3rem 0 2rem 0; font-family:'Playfair Display', serif; font-size:2.5rem; color:#4a2312; }
+        /* HERO */
+        .hero {
+            height:100vh; min-height:620px;
+            background: linear-gradient(160deg, rgba(42,15,4,0.92) 0%, rgba(74,35,18,0.75) 40%, rgba(42,15,4,0.85) 100%),
+                        url('images/Bridal Mehandi designs.jpeg') center/cover no-repeat;
+            display:flex; align-items:center; justify-content:center;
+            position:relative; overflow:hidden;
+        }
+        .hero::after {
+            content:'';
+            position:absolute; bottom:0; left:0; right:0; height:120px;
+            background:linear-gradient(transparent, var(--cream));
+        }
+        .hero-content { text-align:center; z-index:2; padding:0 2rem; }
+        .hero-tag {
+            display:inline-flex; align-items:center; gap:0.6rem;
+            background:rgba(212,168,67,0.15); border:1px solid rgba(212,168,67,0.35);
+            color:var(--gold-light); padding:0.45rem 1.2rem; border-radius:30px;
+            font-size:0.78rem; letter-spacing:0.15em; text-transform:uppercase;
+            margin-bottom:2rem;
+        }
+        .hero h1 {
+            font-family:'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 9vw, 7rem);
+            color:#fff; line-height:1.05;
+            text-shadow:0 4px 30px rgba(0,0,0,0.4);
+        }
+        .hero h1 span { color:var(--gold); display:block; font-style:italic; }
+        .hero-sub { color:rgba(255,255,255,0.65); font-size:1.1rem; margin:1.5rem 0 2.5rem; font-weight:300; letter-spacing:0.04em; }
+        .hero-cta { display:inline-flex; align-items:center; gap:0.7rem; background:var(--gold); color:var(--deep); padding:1rem 2.5rem; border-radius:50px; text-decoration:none; font-weight:700; font-size:0.95rem; letter-spacing:0.05em; transition:0.3s; }
+        .hero-cta:hover { background:#fff; transform:translateY(-3px); box-shadow:0 15px 40px rgba(0,0,0,0.3); }
 
-        .main-container { padding:0 8% 5rem 8%; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:2.5rem; }
-        .category-card { background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 12px 25px rgba(97,28,5,0.05); transition:0.4s; display:flex; flex-direction:column; border:1px solid #f5eae1; text-align:center; }
-        .category-card:hover { transform:translateY(-8px); box-shadow:0 15px 35px rgba(97,28,5,0.12); }
-        .card-img { width:100%; height:280px; object-fit:cover; }
-        .card-content { padding:2rem; display:flex; flex-direction:column; flex-grow:1; }
-        .card-content h2 { font-family:'Playfair Display', serif; font-size:1.5rem; color:#4a2312; margin-bottom:1.5rem; }
-        
-        .btn { display:inline-block; padding:0.8rem 1.8rem; border-radius:30px; font-weight:600; text-decoration:none; transition:0.3s; text-align:center; margin-top:auto; }
-        .btn-primary { background:#4a2312; color:white; }
-        .btn-primary:hover { background:#6e371c; }
-        
-        footer { background:#300c01; color:#fcdfa9; text-align:center; padding:2rem; font-size:0.95rem; }
+        /* MARQUEE STRIP */
+        .strip { background:var(--gold); padding:0.75rem 0; overflow:hidden; position:relative; z-index:1; }
+        .strip-inner { display:flex; gap:3rem; white-space:nowrap; animation:marquee 22s linear infinite; }
+        .strip-inner span { color:var(--deep); font-weight:700; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; flex-shrink:0; }
+        .strip-dot { color:var(--rich); opacity:0.5; }
+        @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-        @media (max-width: 768px) {
-            body { padding-top: 140px; }
-            .navbar { padding: 1rem; flex-direction: column; gap: 0.8rem; }
-            .logo { font-size: 1.6rem; }
-            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.4rem; }
-            .nav-links a { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
-            .hero { height: 40vh; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; }
-            .section-title { font-size: 1.8rem; margin: 2rem 0 1rem 0; }
-            .main-container { padding: 0 4% 3rem 4%; gap: 1.5rem; }
+        /* SECTION BASE */
+        section { padding:7rem 5% 5rem; }
+        .section-eyebrow { text-align:center; color:var(--warm); font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; margin-bottom:0.8rem; }
+        .section-title { text-align:center; font-family:'Cormorant Garamond', serif; font-size:clamp(2.2rem,5vw,3.5rem); color:var(--rich); line-height:1.15; margin-bottom:0.7rem; }
+        .section-title em { color:var(--warm); font-style:italic; }
+        .section-desc { text-align:center; color:var(--muted); max-width:550px; margin:0 auto 4rem; line-height:1.8; }
+
+        /* COLLECTIONS GRID */
+        .collections-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:1.5rem; max-width:1300px; margin:0 auto; }
+        .coll-card {
+            border-radius:22px; overflow:hidden; position:relative;
+            box-shadow:0 12px 35px rgba(42,15,4,0.1);
+            transition:0.4s cubic-bezier(.34,1.56,.64,1);
+            cursor:pointer;
+            aspect-ratio: 3/4;
+        }
+        .coll-card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 25px 60px rgba(42,15,4,0.2); }
+        .coll-card img { width:100%; height:100%; object-fit:cover; transition:0.5s; }
+        .coll-card:hover img { transform:scale(1.08); }
+        .coll-overlay {
+            position:absolute; inset:0;
+            background:linear-gradient(to top, rgba(42,15,4,0.88) 0%, rgba(42,15,4,0.1) 55%, transparent 100%);
+            display:flex; flex-direction:column; justify-content:flex-end;
+            padding:1.8rem;
+        }
+        .coll-label { color:rgba(255,255,255,0.6); font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.3rem; }
+        .coll-name { color:#fff; font-family:'Cormorant Garamond', serif; font-size:1.4rem; font-weight:600; margin-bottom:0.8rem; }
+        .coll-btn { display:inline-flex; align-items:center; gap:0.4rem; background:var(--gold); color:var(--deep); padding:0.45rem 1.1rem; border-radius:30px; text-decoration:none; font-size:0.78rem; font-weight:700; letter-spacing:0.05em; width:fit-content; transition:0.3s; }
+        .coll-btn:hover { background:#fff; }
+
+        /* FEATURES STRIP */
+        .features { background:var(--rich); }
+        .features-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; max-width:1300px; margin:0 auto; }
+        .feat { padding:3rem 2rem; text-align:center; border-right:1px solid rgba(255,255,255,0.08); }
+        .feat:last-child { border-right:none; }
+        .feat-icon { font-size:2.5rem; margin-bottom:1rem; display:block; }
+        .feat h3 { font-family:'Cormorant Garamond', serif; color:#fff; font-size:1.3rem; margin-bottom:0.5rem; }
+        .feat p { color:rgba(255,255,255,0.5); font-size:0.85rem; line-height:1.6; }
+
+        /* PROCESS SECTION */
+        .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; max-width:1200px; margin:0 auto; }
+        .process-step { text-align:center; padding:2.5rem 1.5rem; background:white; border-radius:20px; box-shadow:0 10px 30px rgba(42,15,4,0.05); border:1px solid var(--parchment); position:relative; }
+        .step-num { position:absolute; top:-18px; left:50%; transform:translateX(-50%); background:var(--gold); color:var(--deep); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem; box-shadow:0 4px 12px rgba(212,168,67,0.4); }
+        .step-icon { font-size:2.2rem; margin-bottom:1rem; display:block; }
+        .process-step h4 { font-family:'Cormorant Garamond', serif; color:var(--rich); font-size:1.2rem; margin-bottom:0.6rem; }
+        .process-step p { color:var(--muted); font-size:0.85rem; line-height:1.65; }
+
+        /* CTA BANNER */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--deep) 0%, #6e2208 60%, var(--deep) 100%);
+            margin:0 5% 4rem; border-radius:28px;
+            padding:5rem 4rem;
+            text-align:center;
+            position:relative; overflow:hidden;
+        }
+        .cta-banner::before { content:'🌿'; position:absolute; font-size:18rem; opacity:0.03; right:-3rem; top:-4rem; pointer-events:none; }
+        .cta-banner h2 { font-family:'Cormorant Garamond', serif; color:#fff; font-size:3rem; margin-bottom:1rem; }
+        .cta-banner p { color:rgba(255,255,255,0.6); margin-bottom:2.5rem; font-size:1.05rem; }
+        .cta-btn { display:inline-flex; align-items:center; gap:0.7rem; background:var(--gold); color:var(--deep); padding:1.1rem 3rem; border-radius:50px; text-decoration:none; font-weight:700; font-size:1rem; letter-spacing:0.05em; transition:0.3s; }
+        .cta-btn:hover { background:#fff; transform:translateY(-3px); box-shadow:0 15px 40px rgba(0,0,0,0.3); }
+
+        /* FOOTER */
+        footer { background:var(--deep); color:rgba(255,255,255,0.45); text-align:center; padding:3rem 2rem; }
+        .footer-logo { font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:var(--gold); display:block; margin-bottom:0.5rem; }
+        .footer-links { display:flex; justify-content:center; gap:2rem; margin:1rem 0; flex-wrap:wrap; }
+        .footer-links a { color:rgba(255,255,255,0.45); text-decoration:none; font-size:0.82rem; letter-spacing:0.06em; text-transform:uppercase; transition:0.3s; }
+        .footer-links a:hover { color:var(--gold); }
+        .footer-copy { font-size:0.78rem; margin-top:1rem; }
+
+        /* RESPONSIVE */
+        @media(max-width:1100px) {
+            .collections-grid { grid-template-columns:repeat(2,1fr); }
+            .features-grid { grid-template-columns:repeat(2,1fr); }
+            .process-grid { grid-template-columns:repeat(2,1fr); }
+        }
+        @media(max-width:768px) {
+            .navbar { padding:0.8rem 1.2rem; }
+            .logo em { display:none; }
+            .nav-links a { padding:0.4rem 0.7rem; font-size:0.78rem; }
+            section { padding:4rem 4% 3rem; }
+            .cta-banner { margin:0 4% 3rem; padding:3rem 1.5rem; }
+            .cta-banner h2 { font-size:2rem; }
+        }
+        @media(max-width:560px) {
+            .collections-grid { grid-template-columns:1fr; }
+            .features-grid { grid-template-columns:1fr; }
+            .process-grid { grid-template-columns:1fr; }
+            .feat { border-right:none; border-bottom:1px solid rgba(255,255,255,0.08); }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="index.html" class="logo">shahihennaholic</a>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="cones.html">Cones & Storage</a>
-            <a href="styles.html">Mehndi Styles</a>
-            <a href="reviews.html">Reviews & Contact</a>
-        </div>
-    </nav>
+<nav class="navbar">
+    <a href="index.html" class="logo">
+        shahihennaholic
+        <em>Organic Mehndi Artistry</em>
+    </a>
+    <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="cones.html">Cones</a>
+        <a href="styles.html">Styles</a>
+        <a href="reviews.html">Reviews</a>
+    </div>
+</nav>
 
-    <section class="hero">
-        <h1>Shahi Henna Artistry</h1>
-        <p>Organic Fresh Cones | Traditional Mehndi at Your Doorstep</p>
-    </section>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-tag">🌿 100% Organic & Chemical-Free</div>
+        <h1>
+            Shahi Henna
+            <span>Artistry</span>
+        </h1>
+        <p class="hero-sub">Fresh Organic Cones · Traditional Mehndi · Delivered to Your Doorstep</p>
+        <a href="styles.html" class="hero-cta">✨ Explore Our Designs</a>
+    </div>
+</section>
 
-    <h2 class="section-title">Our Collections</h2>
+<!-- MARQUEE STRIP -->
+<div class="strip">
+    <div class="strip-inner">
+        <span>🌿 100% Organic</span><span class="strip-dot">◆</span>
+        <span>✨ Bridal Mehndi</span><span class="strip-dot">◆</span>
+        <span>🎨 Custom Designs</span><span class="strip-dot">◆</span>
+        <span>📦 Fresh Frozen Cones</span><span class="strip-dot">◆</span>
+        <span>🌸 Chemical Free</span><span class="strip-dot">◆</span>
+        <span>💛 Premium Artistry</span><span class="strip-dot">◆</span>
+        <span>🌿 100% Organic</span><span class="strip-dot">◆</span>
+        <span>✨ Bridal Mehndi</span><span class="strip-dot">◆</span>
+        <span>🎨 Custom Designs</span><span class="strip-dot">◆</span>
+        <span>📦 Fresh Frozen Cones</span><span class="strip-dot">◆</span>
+        <span>🌸 Chemical Free</span><span class="strip-dot">◆</span>
+        <span>💛 Premium Artistry</span><span class="strip-dot">◆</span>
+    </div>
+</div>
 
-    <main class="main-container">
-        <div class="category-card">
-            <img src="images/Bridal Mehandi designs.jpeg" alt="Bridal Mehndi" class="card-img">
-            <div class="card-content">
-                <h2>Bridal Mehndi</h2>
-                <a href="styles.html" class="btn btn-primary">View Designs</a>
+<!-- COLLECTIONS -->
+<section>
+    <p class="section-eyebrow">✦ Our Collections ✦</p>
+    <h2 class="section-title">Designs for Every <em>Occasion</em></h2>
+    <p class="section-desc">From grand bridal sets to delicate minimal art — explore our curated mehndi portfolio</p>
+
+    <div class="collections-grid">
+        <div class="coll-card">
+            <img src="images/Bridal Mehandi designs.jpeg" alt="Bridal Mehndi">
+            <div class="coll-overlay">
+                <div class="coll-label">Signature Collection</div>
+                <div class="coll-name">Bridal Mehndi</div>
+                <a href="styles.html" class="coll-btn">View ↗</a>
             </div>
         </div>
-
-        <div class="category-card">
-            <img src="images/Normal cones and bridal cones.jpeg" alt="Organic Cones" class="card-img">
-            <div class="card-content">
-                <h2>Organic Cones</h2>
-                <a href="cones.html" class="btn btn-primary">Storage Instructions</a>
+        <div class="coll-card">
+            <img src="images/Mandala design front and back.jpeg" alt="Mandala">
+            <div class="coll-overlay">
+                <div class="coll-label">Sacred Geometry</div>
+                <div class="coll-name">Mandala Art</div>
+                <a href="styles.html" class="coll-btn">View ↗</a>
             </div>
         </div>
-
-        <div class="category-card">
-            <img src="images/Mandala design front and back.jpeg" alt="Mandala Work" class="card-img">
-            <div class="card-content">
-                <h2>Mandala Masterpieces</h2>
-                <a href="styles.html" class="btn btn-primary">Explore Style</a>
+        <div class="coll-card">
+            <img src="images/Palm length design front and back.jpeg" alt="Palm Length">
+            <div class="coll-overlay">
+                <div class="coll-label">Everyday Elegance</div>
+                <div class="coll-name">Palm Length</div>
+                <a href="styles.html" class="coll-btn">View ↗</a>
             </div>
         </div>
-
-        <div class="category-card">
-            <img src="images/Palm length design front and back.jpeg" alt="Palm Style" class="card-img">
-            <div class="card-content">
-                <h2>Palm Length Art</h2>
-                <a href="styles.html" class="btn btn-primary">See Collection</a>
+        <div class="coll-card">
+            <img src="images/Minimal design.jpeg" alt="Minimal">
+            <div class="coll-overlay">
+                <div class="coll-label">Modern Style</div>
+                <div class="coll-name">Minimal Design</div>
+                <a href="styles.html" class="coll-btn">View ↗</a>
             </div>
         </div>
-    </main>
+    </div>
+</section>
 
-    <footer>shahihennaholic • Premium Organic Mehndi Artistry</footer>
+<!-- FEATURES -->
+<section class="features" style="padding:4rem 0;">
+    <div class="features-grid">
+        <div class="feat">
+            <span class="feat-icon">🌿</span>
+            <h3>100% Organic</h3>
+            <p>Pure natural henna with zero chemicals, safe for all skin types including sensitive skin</p>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🧊</span>
+            <h3>Freeze-Fresh Cones</h3>
+            <p>Handmade cones sealed and frozen to preserve peak freshness and color potency</p>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🎨</span>
+            <h3>Custom Artistry</h3>
+            <p>Personalised bridal and event designs crafted to your unique vision and preferences</p>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🌸</span>
+            <h3>Rich Deep Stain</h3>
+            <p>Our formula guarantees deep burgundy-brown colour that darkens beautifully within 48hrs</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section style="background:white;">
+    <p class="section-eyebrow">✦ How It Works ✦</p>
+    <h2 class="section-title">From Order to <em>Perfect Stain</em></h2>
+    <p class="section-desc">A simple journey to gorgeous, long-lasting mehndi</p>
+
+    <div class="process-grid">
+        <div class="process-step">
+            <div class="step-num">1</div>
+            <span class="step-icon">📱</span>
+            <h4>Place Your Order</h4>
+            <p>DM us on Instagram to check availability, select your cone type and confirm your order</p>
+        </div>
+        <div class="process-step">
+            <div class="step-num">2</div>
+            <span class="step-icon">📦</span>
+            <h4>Freshly Packed</h4>
+            <p>Your cones are handmade, quality-checked and packed fresh for maximum colour output</p>
+        </div>
+        <div class="process-step">
+            <div class="step-num">3</div>
+            <span class="step-icon">🧊</span>
+            <h4>Store in Freezer</h4>
+            <p>Immediately freeze upon receipt. Cones stay potent for 2–3 months when properly stored</p>
+        </div>
+        <div class="process-step">
+            <div class="step-num">4</div>
+            <span class="step-icon">🌸</span>
+            <h4>Apply & Reveal</h4>
+            <p>Thaw for 30 mins, apply with care, leave overnight for the deepest, richest colour</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+    <h2>Ready for Beautiful Mehndi?</h2>
+    <p>Book your bridal appointment or order fresh organic cones today</p>
+    <a href="reviews.html" class="cta-btn"> See What Customers Say</a>
+</div>
+
+<footer>
+    <span class="footer-logo">shahihennaholic</span>
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="cones.html">Cones & Storage</a>
+        <a href="styles.html">Mehndi Styles</a>
+        <a href="reviews.html">Reviews</a>
+    </div>
+    <p class="footer-copy">© 2025 shahihennaholic · Premium Organic Mehndi Artistry</p>
+</footer>
 
 </body>
 </html>
