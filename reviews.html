@@ -7,77 +7,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep: #2a0f04;
-            --rich: #4a2312;
-            --warm: #b83b14;
-            --gold: #d4a843;
-            --cream: #fffaf3;
-            --parchment: #f7ede0;
-            --text: #3d2314;
-            --muted: #8a6255;
+            --deep: #2a0f04; --rich: #4a2312; --warm: #b83b14;
+            --gold: #d4a843; --cream: #fffaf3; --parchment: #f7ede0;
+            --text: #3d2314; --muted: #8a6255;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:'Nunito', sans-serif; background:var(--cream); color:var(--text); padding-top:90px; }
 
-        /* NAVBAR */
         .navbar { position:fixed; top:0; width:100%; z-index:1000; background:rgba(42,15,4,0.97); backdrop-filter:blur(12px); display:flex; justify-content:space-between; align-items:center; padding:1rem 5rem; }
         .logo { color:var(--gold); font-family:'Cormorant Garamond', serif; font-size:1.9rem; font-weight:700; text-decoration:none; letter-spacing:0.03em; }
-        .logo span { color:#fff; font-style:italic; font-weight:400; font-size:1.1rem; display:block; line-height:1; }
+        .logo em { color:rgba(255,255,255,0.5); font-style:italic; font-size:0.75rem; display:block; letter-spacing:0.15em; line-height:1; text-transform:uppercase; font-family:'Nunito',sans-serif; }
         .nav-links { display:flex; gap:0.3rem; }
-        .nav-links a { text-decoration:none; color:rgba(255,255,255,0.78); font-weight:500; padding:0.55rem 1.1rem; border-radius:40px; transition:0.3s; font-size:0.88rem; letter-spacing:0.04em; text-transform:uppercase; }
+        .nav-links a { text-decoration:none; color:rgba(255,255,255,0.75); font-weight:600; padding:0.55rem 1.1rem; border-radius:40px; transition:0.3s; font-size:0.82rem; letter-spacing:0.06em; text-transform:uppercase; }
         .nav-links a:hover, .nav-links a.active { background:var(--gold); color:var(--deep); }
 
-        /* HERO BANNER */
         .page-hero {
             background: linear-gradient(135deg, var(--deep) 0%, #6e2208 50%, #3d1509 100%);
-            padding: 5rem 2rem 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden;
         }
         .page-hero::before {
-            content:'';
-            position:absolute; inset:0;
+            content:''; position:absolute; inset:0;
             background: radial-gradient(ellipse at 70% 50%, rgba(212,168,67,0.12) 0%, transparent 60%),
                         radial-gradient(ellipse at 20% 80%, rgba(184,59,20,0.15) 0%, transparent 50%);
         }
-        .hero-ornament {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-            filter: drop-shadow(0 0 20px rgba(212,168,67,0.5));
-        }
+        .hero-ornament { font-size:3rem; margin-bottom:1rem; display:block; filter:drop-shadow(0 0 20px rgba(212,168,67,0.5)); position:relative; }
         .page-hero h1 { font-family:'Cormorant Garamond', serif; font-size:3.8rem; color:#fff; position:relative; }
         .page-hero h1 span { color:var(--gold); }
         .page-hero p { color:rgba(255,255,255,0.65); margin-top:0.7rem; font-size:1.05rem; position:relative; }
 
-        /* LAYOUT */
         .layout { display:grid; grid-template-columns:1fr 1.6fr; gap:3rem; max-width:1200px; margin:0 auto; padding:4rem 2rem 6rem; }
 
-        /* CONTACT CARD */
-        .contact-card {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(42,15,4,0.08);
-            height: fit-content;
-            position: sticky;
-            top: 110px;
-        }
-        .contact-card-top {
-            background: linear-gradient(135deg, var(--rich), #6e2208);
-            padding: 2.5rem;
-            text-align: center;
-        }
-        .contact-avatar {
-            width:80px; height:80px;
-            background: var(--gold);
-            border-radius:50%;
-            display:flex; align-items:center; justify-content:center;
-            font-size:2.2rem;
-            margin: 0 auto 1rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
+        .contact-card { background:white; border-radius:24px; overflow:hidden; box-shadow:0 20px 60px rgba(42,15,4,0.08); height:fit-content; position:sticky; top:110px; }
+        .contact-card-top { background:linear-gradient(135deg, var(--rich), #6e2208); padding:2.5rem; text-align:center; }
+        .contact-avatar { width:80px; height:80px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.2rem; margin:0 auto 1rem; box-shadow:0 8px 25px rgba(0,0,0,0.3); }
         .contact-card-top h2 { font-family:'Cormorant Garamond', serif; color:#fff; font-size:1.8rem; }
         .contact-card-top p { color:rgba(255,255,255,0.7); font-size:0.88rem; margin-top:0.3rem; }
         .contact-body { padding:2rem; }
@@ -86,102 +48,61 @@
         .contact-row h4 { font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; }
         .contact-row p { font-size:0.92rem; color:var(--text); margin-top:0.2rem; line-height:1.5; }
         .divider { height:1px; background:var(--parchment); margin:1.5rem 0; }
-        .ig-btn {
-            display:flex; align-items:center; justify-content:center; gap:0.7rem;
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            color:white; padding:1rem 2rem; border-radius:50px; text-decoration:none;
-            font-weight:700; font-size:0.9rem; letter-spacing:0.05em; text-transform:uppercase;
-            transition:0.3s; width:100%;
-        }
+        .ig-btn { display:flex; align-items:center; justify-content:center; gap:0.7rem; background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color:white; padding:1rem 2rem; border-radius:50px; text-decoration:none; font-weight:700; font-size:0.9rem; letter-spacing:0.05em; text-transform:uppercase; transition:0.3s; width:100%; }
         .ig-btn:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(220,39,67,0.35); }
-        .ig-icon { font-size:1.3rem; }
 
-        /* REVIEWS SECTION */
         .reviews-card { background:white; border-radius:24px; box-shadow:0 20px 60px rgba(42,15,4,0.08); overflow:hidden; }
         .reviews-header { background:linear-gradient(135deg, var(--deep), #3d1509); padding:2rem 2.5rem; display:flex; justify-content:space-between; align-items:center; }
         .reviews-header h2 { font-family:'Cormorant Garamond', serif; color:#fff; font-size:2rem; }
         .reviews-count { background:var(--gold); color:var(--deep); font-weight:700; padding:0.3rem 1rem; border-radius:20px; font-size:0.85rem; }
         .reviews-body { padding:2.5rem; }
 
-        /* WRITE REVIEW FORM */
         .write-review { background:var(--parchment); border-radius:18px; padding:2rem; margin-bottom:2.5rem; border:1px solid #f0dfd0; }
         .write-review h3 { font-family:'Cormorant Garamond', serif; font-size:1.6rem; color:var(--rich); margin-bottom:1.2rem; }
         .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
         .form-group { display:flex; flex-direction:column; gap:0.4rem; }
         .form-group label { font-size:0.78rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; }
-        .form-group input, .form-group textarea {
-            border:1.5px solid #e8d5c5;
-            border-radius:12px;
-            padding:0.8rem 1rem;
-            font-family:'Nunito', sans-serif;
-            font-size:0.92rem;
-            color:var(--text);
-            background:white;
-            transition:0.3s;
-            outline:none;
-        }
+        .form-group input, .form-group textarea { border:1.5px solid #e8d5c5; border-radius:12px; padding:0.8rem 1rem; font-family:'Nunito',sans-serif; font-size:0.92rem; color:var(--text); background:white; transition:0.3s; outline:none; }
         .form-group input:focus, .form-group textarea:focus { border-color:var(--warm); box-shadow:0 0 0 3px rgba(184,59,20,0.1); }
         .form-group textarea { resize:vertical; min-height:90px; }
-        
+
+        .star-label { font-size:0.78rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:0.4rem; }
         .star-picker { display:flex; gap:0.3rem; margin-bottom:1rem; }
-        .star-btn { font-size:1.6rem; cursor:pointer; transition:0.2s; filter:grayscale(1) opacity(0.4); line-height:1; background:none; border:none; padding:0.1rem; }
-        .star-btn.active, .star-btn:hover { filter:none; transform:scale(1.15); }
+        .star-btn { font-size:1.6rem; cursor:pointer; transition:0.2s; filter:grayscale(1) opacity(0.35); line-height:1; background:none; border:none; padding:0.1rem; }
+        .star-btn.active { filter:none; }
+        .star-btn:hover { filter:none; transform:scale(1.2); }
 
-        .submit-btn {
-            background:linear-gradient(135deg, var(--warm), var(--rich));
-            color:white; border:none; padding:0.9rem 2.5rem;
-            border-radius:50px; font-family:'Nunito', sans-serif;
-            font-weight:700; font-size:0.95rem; cursor:pointer;
-            transition:0.3s; letter-spacing:0.04em;
-            display:flex; align-items:center; gap:0.6rem;
-        }
+        .submit-btn { background:linear-gradient(135deg, var(--warm), var(--rich)); color:white; border:none; padding:0.9rem 2.5rem; border-radius:50px; font-family:'Nunito',sans-serif; font-weight:700; font-size:0.95rem; cursor:pointer; transition:0.3s; letter-spacing:0.04em; display:flex; align-items:center; gap:0.6rem; }
         .submit-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(184,59,20,0.35); }
-        .submit-btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+        .submit-btn:disabled { opacity:0.55; cursor:not-allowed; transform:none; box-shadow:none; }
 
-        /* REVIEWS LIST */
         .reviews-list { display:flex; flex-direction:column; gap:1.2rem; }
-        .review-item {
-            background:var(--parchment); border-radius:16px; padding:1.5rem;
-            border-left:4px solid var(--gold);
-            animation: fadeUp 0.4s ease;
-        }
+        .review-item { background:var(--parchment); border-radius:16px; padding:1.5rem; border-left:4px solid var(--gold); animation:fadeUp 0.4s ease; }
         @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
         .review-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.7rem; }
         .reviewer-name { font-weight:700; color:var(--rich); font-size:1rem; }
-        .review-stars { color:var(--gold); font-size:1.1rem; letter-spacing:0.1em; }
+        .review-stars { color:var(--gold); font-size:1.1rem; letter-spacing:0.05em; }
         .review-date { font-size:0.75rem; color:var(--muted); margin-top:0.2rem; }
         .review-text { color:#4a3931; line-height:1.65; font-size:0.92rem; }
         .no-reviews { text-align:center; padding:3rem 1rem; color:var(--muted); }
         .no-reviews .big-icon { font-size:3rem; display:block; margin-bottom:1rem; opacity:0.5; }
 
-        /* TOAST */
-        .toast { position:fixed; bottom:2rem; right:2rem; background:var(--deep); color:white; padding:1rem 1.8rem; border-radius:16px; font-size:0.9rem; font-weight:600; z-index:9999; transform:translateY(80px); opacity:0; transition:0.4s cubic-bezier(.34,1.56,.64,1); pointer-events:none; display:flex; align-items:center; gap:0.6rem; }
+        .toast { position:fixed; bottom:2rem; right:2rem; background:var(--deep); color:white; padding:1rem 1.8rem; border-radius:16px; font-size:0.9rem; font-weight:600; z-index:9999; transform:translateY(80px); opacity:0; transition:0.4s cubic-bezier(.34,1.56,.64,1); pointer-events:none; }
         .toast.show { transform:translateY(0); opacity:1; }
 
-        /* LOADING */
         .loading-spinner { display:flex; justify-content:center; padding:2rem; }
         .spinner { width:36px; height:36px; border:3px solid var(--parchment); border-top-color:var(--warm); border-radius:50%; animation:spin 0.8s linear infinite; }
         @keyframes spin { to{transform:rotate(360deg)} }
 
-        /* FOOTER */
-        footer {
-            background:var(--deep);
-            color:#fcdfa9;
-            text-align:center;
-            padding:3rem 2rem;
-        }
-        .footer-logo { font-family:'Cormorant Garamond', serif; font-size:2rem; color:var(--gold); margin-bottom:0.5rem; }
-        .footer-text { color:rgba(255,255,255,0.45); font-size:0.82rem; letter-spacing:0.06em; text-transform:uppercase; }
+        footer { background:var(--deep); color:rgba(255,255,255,0.45); text-align:center; padding:3rem 2rem; }
+        .footer-logo { font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:var(--gold); display:block; margin-bottom:0.5rem; }
+        .footer-copy { font-size:0.78rem; }
 
-        /* RESPONSIVE */
-        @media(max-width:900px) {
-            .layout { grid-template-columns:1fr; }
-            .contact-card { position:static; }
-        }
+        @media(max-width:900px) { .layout { grid-template-columns:1fr; } .contact-card { position:static; } }
         @media(max-width:600px) {
             body { padding-top:80px; }
             .navbar { padding:0.8rem 1.2rem; }
-            .logo span { display:none; }
+            .logo em { display:none; }
             .nav-links a { padding:0.4rem 0.7rem; font-size:0.78rem; }
             .page-hero h1 { font-size:2.4rem; }
             .form-row { grid-template-columns:1fr; }
@@ -194,7 +115,7 @@
 <nav class="navbar">
     <a href="index.html" class="logo">
         shahihennaholic
-        <span>Premium Organic Mehndi</span>
+        <em>Organic Mehndi Artistry</em>
     </a>
     <div class="nav-links">
         <a href="index.html">Home</a>
@@ -212,7 +133,6 @@
 
 <div class="layout">
 
-    <!-- CONTACT CARD -->
     <div class="contact-card">
         <div class="contact-card-top">
             <div class="contact-avatar">🎨</div>
@@ -243,21 +163,18 @@
             </div>
             <div class="divider"></div>
             <a href="https://www.instagram.com/shahihennaholic" target="_blank" class="ig-btn">
-                <span class="ig-icon">📸</span>
-                Follow @shahihennaholic
+                📸 Follow @shahihennaholic
             </a>
         </div>
     </div>
 
-    <!-- REVIEWS CARD -->
     <div class="reviews-card">
         <div class="reviews-header">
             <h2>Customer Reviews</h2>
-            <div class="reviews-count" id="reviewCount">Loading...</div>
+            <div class="reviews-count" id="reviewCount">Loading…</div>
         </div>
         <div class="reviews-body">
 
-            <!-- WRITE REVIEW -->
             <div class="write-review">
                 <h3>✍️ Leave a Review</h3>
                 <div class="form-row">
@@ -266,7 +183,7 @@
                         <input type="text" id="reviewerName" placeholder="e.g. Priya Sharma" maxlength="60">
                     </div>
                     <div class="form-group">
-                        <label>Rating *</label>
+                        <div class="star-label">Rating *</div>
                         <div class="star-picker" id="starPicker">
                             <button class="star-btn" data-val="1">⭐</button>
                             <button class="star-btn" data-val="2">⭐</button>
@@ -278,14 +195,13 @@
                 </div>
                 <div class="form-group" style="margin-bottom:1rem">
                     <label>Your Review *</label>
-                    <textarea id="reviewText" placeholder="Tell us about your mehndi experience..." maxlength="500"></textarea>
+                    <textarea id="reviewText" placeholder="Tell us about your mehndi experience…" maxlength="500"></textarea>
                 </div>
                 <button class="submit-btn" id="submitBtn" onclick="submitReview()">
-                    <span>🌸</span> Post Review
+                    🌸 Post Review
                 </button>
             </div>
 
-            <!-- REVIEWS LIST -->
             <div id="reviewsContainer">
                 <div class="loading-spinner"><div class="spinner"></div></div>
             </div>
@@ -295,64 +211,60 @@
 </div>
 
 <footer>
-    <div class="footer-logo">shahihennaholic</div>
-    <div class="footer-text">Premium Organic Mehndi Artistry • Pure. Natural. Beautiful.</div>
+    <span class="footer-logo">shahihennaholic</span>
+    <p class="footer-copy">© 2025 shahihennaholic · Premium Organic Mehndi Artistry</p>
 </footer>
 
 <div class="toast" id="toast"></div>
 
-<script>
-    // ─── Storage key
-    const STORAGE_KEY = 'shahi_reviews_v1';
-    let selectedRating = 0;
-    let reviews = [];
+<!-- Firebase v9 compat (works in plain HTML, no bundler needed) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
-    // ─── Star picker
+<script>
+    // ── Firebase init ──────────────────────────────────────────────
+    const firebaseConfig = {
+        apiKey: "AIzaSyAbsIewxySNcgldNqjNWPJHi1tw2Mst0xc",
+        authDomain: "shahihennaholic-3e92f.firebaseapp.com",
+        projectId: "shahihennaholic-3e92f",
+        storageBucket: "shahihennaholic-3e92f.firebasestorage.app",
+        messagingSenderId: "1088448461828",
+        appId: "1:1088448461828:web:a4c9076d4d49aa893e0951"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const reviewsCol = db.collection("reviews");
+
+    // ── Star picker ────────────────────────────────────────────────
+    let selectedRating = 0;
     document.querySelectorAll('.star-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             selectedRating = parseInt(btn.dataset.val);
-            document.querySelectorAll('.star-btn').forEach((b, i) => {
-                b.classList.toggle('active', i < selectedRating);
-            });
+            updateStars(selectedRating);
         });
-        btn.addEventListener('mouseover', () => {
-            const val = parseInt(btn.dataset.val);
-            document.querySelectorAll('.star-btn').forEach((b, i) => {
-                b.classList.toggle('active', i < val);
-            });
-        });
-        btn.addEventListener('mouseout', () => {
-            document.querySelectorAll('.star-btn').forEach((b, i) => {
-                b.classList.toggle('active', i < selectedRating);
-            });
-        });
+        btn.addEventListener('mouseover', () => updateStars(parseInt(btn.dataset.val)));
+        btn.addEventListener('mouseout',  () => updateStars(selectedRating));
+    });
+    function updateStars(val) {
+        document.querySelectorAll('.star-btn').forEach((b, i) =>
+            b.classList.toggle('active', i < val));
+    }
+
+    // ── Real-time listener — updates instantly on ALL devices ──────
+    reviewsCol.orderBy("timestamp", "desc").onSnapshot(snapshot => {
+        const reviews = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderReviews(reviews);
+    }, err => {
+        console.error(err);
+        document.getElementById('reviewsContainer').innerHTML =
+            '<p style="color:var(--muted);text-align:center;padding:2rem">Could not load reviews. Check your internet connection.</p>';
     });
 
-    // ─── Load reviews from storage
-    async function loadReviews() {
-        try {
-            const result = await window.storage.get(STORAGE_KEY, true);
-            reviews = result ? JSON.parse(result.value) : [];
-        } catch(e) {
-            reviews = [];
-        }
-        renderReviews();
-    }
-
-    // ─── Save reviews to storage
-    async function saveReviews() {
-        try {
-            await window.storage.set(STORAGE_KEY, JSON.stringify(reviews), true);
-        } catch(e) {
-            console.error('Save failed', e);
-        }
-    }
-
-    // ─── Render
-    function renderReviews() {
-        const container = document.getElementById('reviewsContainer');
+    // ── Render ─────────────────────────────────────────────────────
+    function renderReviews(reviews) {
         const count = document.getElementById('reviewCount');
         count.textContent = reviews.length + (reviews.length === 1 ? ' Review' : ' Reviews');
+        const container = document.getElementById('reviewsContainer');
 
         if (reviews.length === 0) {
             container.innerHTML = `
@@ -362,86 +274,67 @@
                 </div>`;
             return;
         }
-
-        // newest first
-        const sorted = [...reviews].reverse();
-        container.innerHTML = '<div class="reviews-list">' + sorted.map(r => `
-            <div class="review-item">
-                <div class="review-top">
-                    <div>
-                        <div class="reviewer-name">🌺 ${escapeHtml(r.name)}</div>
-                        <div class="review-date">${r.date}</div>
+        container.innerHTML = '<div class="reviews-list">' +
+            reviews.map(r => `
+                <div class="review-item">
+                    <div class="review-top">
+                        <div>
+                            <div class="reviewer-name">🌺 ${esc(r.name)}</div>
+                            <div class="review-date">${r.date || ''}</div>
+                        </div>
+                        <div class="review-stars">${'⭐'.repeat(r.rating)}</div>
                     </div>
-                    <div class="review-stars">${'⭐'.repeat(r.rating)}</div>
-                </div>
-                <div class="review-text">${escapeHtml(r.text)}</div>
-            </div>
-        `).join('') + '</div>';
+                    <div class="review-text">${esc(r.text)}</div>
+                </div>`).join('') + '</div>';
     }
 
-    function escapeHtml(str) {
-        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    function esc(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    // ─── Submit
+    // ── Submit ─────────────────────────────────────────────────────
     async function submitReview() {
         const name = document.getElementById('reviewerName').value.trim();
         const text = document.getElementById('reviewText').value.trim();
 
-        if (!name) { showToast('⚠️ Please enter your name'); return; }
-        if (!selectedRating) { showToast('⚠️ Please choose a star rating'); return; }
-        if (!text) { showToast('⚠️ Please write your review'); return; }
+        if (!name)           { showToast('⚠️ Please enter your name');          return; }
+        if (!selectedRating) { showToast('⚠️ Please choose a star rating');     return; }
+        if (!text)           { showToast('⚠️ Please write your review');        return; }
 
         const btn = document.getElementById('submitBtn');
         btn.disabled = true;
-        btn.innerHTML = '<span>⏳</span> Posting...';
+        btn.textContent = '⏳ Posting…';
 
-        const review = {
-            id: Date.now(),
-            name,
-            rating: selectedRating,
-            text,
-            date: new Date().toLocaleDateString('en-IN', { year:'numeric', month:'long', day:'numeric' })
-        };
+        try {
+            await reviewsCol.add({
+                name,
+                rating: selectedRating,
+                text,
+                date: new Date().toLocaleDateString('en-IN', { year:'numeric', month:'long', day:'numeric' }),
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            });
 
-        reviews.push(review);
-        await saveReviews();
-        renderReviews();
+            // Reset
+            document.getElementById('reviewerName').value = '';
+            document.getElementById('reviewText').value   = '';
+            selectedRating = 0;
+            updateStars(0);
+            showToast('✅ Review posted! Thank you 🌺');
+        } catch (err) {
+            console.error(err);
+            showToast('❌ Failed to post. Please try again.');
+        }
 
-        // Reset form
-        document.getElementById('reviewerName').value = '';
-        document.getElementById('reviewText').value = '';
-        selectedRating = 0;
-        document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('active'));
         btn.disabled = false;
-        btn.innerHTML = '<span>🌸</span> Post Review';
-
-        showToast('✅ Review posted! Thank you! 🌺');
+        btn.innerHTML = '🌸 Post Review';
     }
 
-    // ─── Toast
+    // ── Toast ──────────────────────────────────────────────────────
     function showToast(msg) {
         const t = document.getElementById('toast');
         t.textContent = msg;
         t.classList.add('show');
-        setTimeout(() => t.classList.remove('show'), 3000);
-    }
-
-    // ─── Init
-    if (typeof window.storage !== 'undefined') {
-        loadReviews();
-    } else {
-        // Fallback: localStorage for local testing
-        try {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            reviews = stored ? JSON.parse(stored) : [];
-        } catch(e) { reviews = []; }
-
-        const origSave = saveReviews;
-        window.saveReviews = async function() {
-            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews)); } catch(e) {}
-        };
-        renderReviews();
+        setTimeout(() => t.classList.remove('show'), 3200);
     }
 </script>
 
